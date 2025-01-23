@@ -1,34 +1,39 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["dist", "coverage", ".nx", "node_modules"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2,
-    "lineWidth": 80
+    "indentWidth": 2
+  },
+  "organizeImports": {
+    "enabled": true
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "useImportType": "off"
+      }
     }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single",
-      "trailingCommas": "es5",
-      "semicolons": "always"
+      "quoteStyle": "double"
     }
   },
-  "files": {
-    "ignore": [
-      "dist",
-      "coverage",
-      ".nx/cache",
-      ".nx/workspace-data",
-      "node_modules"
-    ]
+  "css": {
+    "formatter": {
+      "enabled": false
+    }
   }
 }

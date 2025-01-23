@@ -38,12 +38,9 @@
       "application": {
         "babel": true,
         "style": "css",
-        "linter": "eslint",
         "bundler": "vite"
       },
-      "component": {
-        "style": "css"
-      },
+      "component": {},
       "library": {
         "style": "css",
         "linter": "eslint"

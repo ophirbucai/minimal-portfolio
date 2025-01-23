@@ -1,0 +1,31 @@
+:root {
+  --background-color: var(--base-background);
+  --text-color: var(--base-text);
+  --border-color: var(--base-border);
+  --muted-text: color-mix(in srgb, var(--text-color) 70%, var(--background-color));
+  --hover-background: color-mix(in srgb, var(--text-color) 5%, var(--background-color));
+  --font-sans: "NB International Pro", sans-serif;
+  --font-mono: "NB International Pro Mono", monospace;
+  --font-serif: "Canela", serif;
+  --transition-duration: 0.3s;
+}
+
+:root[data-theme="light"] {
+  --base-background: #fff;
+  --base-text: #1a1a1a;
+  --base-border: color-mix(in srgb, var(--base-text) 20%, var(--base-background));
+}
+
+:root[data-theme="dark"] {
+  --base-background: #1a1a1a;
+  --base-text: #fff;
+  --base-border: color-mix(in srgb, var(--base-text) 20%, var(--base-background));
+}
+
+:root, :root[data-theme="light"], :root[data-theme="dark"] {
+  transition: 
+    --base-background var(--transition-duration) ease, 
+    --base-text var(--transition-duration) ease,
+    --hover-background var(--transition-duration) ease
+    --border-color var(--transition-duration) ease;
+}
