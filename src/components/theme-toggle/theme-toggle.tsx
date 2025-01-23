@@ -10,7 +10,7 @@ import { BiCheck, BiChevronDown } from "react-icons/bi";
 import styles from "./theme-toggle.module.css";
 
 export const ThemeToggle = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { theme, selectTheme, nextTheme, toggleTheme } = useTheme();
 
   const NextThemeIcon = themeIconMap[nextTheme];
