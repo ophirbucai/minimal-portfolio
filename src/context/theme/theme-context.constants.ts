@@ -1,9 +1,4 @@
-import {
-  BiDevices,
-  BiPlanet,
-  BiSolidDevices,
-  BiSolidPlanet,
-} from "react-icons/bi";
+import { BiDevices, BiPlanet, BiSolidDevices, BiSolidPlanet } from "react-icons/bi";
 import { HiOutlineSun, HiSun } from "react-icons/hi";
 import { ThemeType } from "./theme-context.types";
 

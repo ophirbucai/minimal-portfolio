@@ -1,9 +1,4 @@
-import {
-  THEMES,
-  activeThemeIconMap,
-  themeIconMap,
-  useTheme,
-} from "@/context/theme";
+import { THEMES, activeThemeIconMap, themeIconMap, useTheme } from "@/context/theme";
 import * as Popover from "@radix-ui/react-popover";
 import { clsx } from "clsx";
 import { useState } from "react";
@@ -25,11 +20,7 @@ export const ThemeToggle = ({ variant }: { variant?: "filled" }) => {
           <BiChevronDown data-icon="chevron-down" size="0.875rem" />
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content
-            className={styles.content}
-            aria-label="Theme options"
-            role="menu"
-          >
+          <Popover.Content className={styles.content} aria-label="Theme options" role="menu">
             {THEMES.map((t) => {
               const Icon = (t === theme ? activeThemeIconMap : themeIconMap)[t];
               return (

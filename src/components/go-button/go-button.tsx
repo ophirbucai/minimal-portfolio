@@ -14,12 +14,7 @@ export const GoButton = forwardRef<HTMLButtonElement, GoButtonProps>(
   ({ className, loading, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
-      <Comp
-        className={styles.goButton}
-        data-loading={loading}
-        ref={ref}
-        {...props}
-      >
+      <Comp className={styles.goButton} data-loading={loading} ref={ref} {...props}>
         {loading ? (
           <Spinner type="fade-quick" className={styles.icon} />
         ) : (

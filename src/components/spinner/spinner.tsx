@@ -14,24 +14,16 @@ interface SpinnerProps {
   lines?: number;
 }
 
-export const Spinner: React.FC<SpinnerProps> = ({
-  type,
-  className,
-  lines = 13,
-}) => {
+export const Spinner: React.FC<SpinnerProps> = ({ type, className, lines = 13 }) => {
   const positions = useMemo(() => generatePositions(lines), [lines]);
   return (
-    <div
-      className={`${styles.spinner} ${className}`}
-      aria-busy="true"
-      aria-live="polite"
-    >
+    <div className={`${styles.spinner} ${className}`} aria-busy="true" aria-live="polite">
       {positions.map((position, index) => (
         <div className={styles.line} key={position}>
           <div
             className={`${styles.inner} ${styles[type]}`}
             style={{
-              animationDelay: `-${(index / positions.length).toFixed(6)}s`,
+              animationDelay: `-${(index / lines).toFixed(6)}s`,
               transform: `translateY(-50%) rotate(${position}deg) translateX(0.5em)`,
             }}
           />

@@ -8,14 +8,7 @@ module.exports = [
     ignores: ["**/dist"],
   },
   {
-    files: [
-      "**/*.ts",
-      "**/*.tsx",
-      "**/*.js",
-      "**/*.jsx",
-      "**/*.cjs",
-      "**/*.mjs",
-    ],
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.cjs", "**/*.mjs"],
     rules: {
       "@typescript-eslint/no-explicit-any": "error",
       "no-console": ["warn", { allow: ["warn", "error"] }],

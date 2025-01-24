@@ -1,8 +1,6 @@
 import styles from "./menu.module.css";
 
-const HASH_ROUTES = [
-  { href: "#", children: "Home" },
-] satisfies React.ComponentProps<"a">[];
+const HASH_ROUTES = [{ href: "#", children: "Home" }] satisfies React.ComponentProps<"a">[];
 
 export const Menu = () => {
   return (

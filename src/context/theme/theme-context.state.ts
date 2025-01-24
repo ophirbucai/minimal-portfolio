@@ -6,8 +6,7 @@ export class ThemeState {
   private changeListeners: Set<() => void>;
 
   constructor() {
-    const initialTheme =
-      (localStorage.getItem("theme") as ThemeType) || "system";
+    const initialTheme = (localStorage.getItem("theme") as ThemeType) || "system";
     this.mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     this.currentTheme = initialTheme;
     this.changeListeners = new Set();
