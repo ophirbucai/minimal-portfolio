@@ -28,12 +28,14 @@
     transition: background-color, color;
     transition-duration: var(--transition-duration);
     transition-timing-function: ease;
+  }
 
-    &:hover,
-    &:focus-visible,
-    &.trigger[data-state="open"] {
-      background-color: var(--hover-background);
-    }
+  .icon-button:hover,
+  .trigger:hover,
+  .icon-button:focus-visible,
+  .trigger:focus-visible,
+  .trigger[data-state="open"] {
+    background-color: var(--hover-background);
   }
 }
 
@@ -43,26 +45,26 @@
   padding: 0.375rem 0;
   transform-origin: var(--radix-select-transform-origin);
   background-color: var(--background-color);
-  min-width: 7.5rem;
-  animation: fade-content-in var(--animation-duration) cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 120px;
+  animation: fade-content-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  &[data-side="bottom"] {
-    --translate-y: -0.625rem;
+.content[data-side="bottom"] {
+  --translate-y: -0.625rem;
+
+  margin-top: 4px;
+}
+
+.content[data-side="top"] {
+  --translate-y: 0.625rem;
   
-    margin-top: 4px;
-  }
+  margin-bottom: 4px;
+}
 
-  &[data-side="top"] {
-    --translate-y: 0.625rem;
-    
-    margin-bottom: 4px;
-  }
-
-  &[data-state="closed"] {
-    animation-name: fade-content-out;
-    animation-fill-mode: forwards;
-    animation-delay: 200ms;
-  }  
+.content[data-state="closed"] {
+  animation-name: fade-content-out;
+  animation-fill-mode: forwards;
+  animation-delay: 200ms;
 }
 
 .item {
@@ -72,16 +74,16 @@
   padding: 0.125rem 1rem 0.125rem 0.5rem;
   width: 100%;
   color: var(--muted-text);
+}
 
-  &:hover {
-    background-color: var(--hover-background);
-    color: var(--text-color);
-  }
+.item:hover {
+  background-color: var(--hover-background);
+  color: var(--text-color);
+}
 
-  &[aria-current="true"] {
-    font-weight: 700;
-    color: var(--text-color);
-  }
+.item[aria-current="true"] {
+  font-weight: 700;
+  color: var(--text-color);
 }
 
 .check-icon {
@@ -107,6 +109,6 @@
 
   100% {
     opacity: 0;
-    transform: scale(0.96) translate3d(0, calc(var(--translate-y / 2)), 0);
+    transform: scale(0.96) translate3d(0, calc((var(--translate-y)) / 2), 0);
   }
 }
