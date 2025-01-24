@@ -1,0 +1,36 @@
+.spots {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background: 
+    radial-gradient(
+      400px 250px ellipse at calc(50% - 150px) var(--vertical-align, 50%),
+      rgba(99, 104, 234, calc((var(--spot-opacity-multiplier, 1)) * 0.45)),
+      transparent 80%
+    ),
+    radial-gradient(
+      400px 250px ellipse at calc(50% + 150px) var(--vertical-align, 50%),
+      rgba(245, 140, 98, calc((var(--spot-opacity-multiplier, 1)) * 0.45)),
+      transparent 80%
+    ),
+    radial-gradient(
+      400px 300px ellipse at 50% var(--vertical-align, 50%),
+      rgba(245, 87, 87, calc((var(--spot-opacity-multiplier, 1)) * 0.3)),
+      transparent 80%
+    );
+}
+
+:root[data-theme="dark"] .spots {
+  --spot-opacity-multiplier: 0.5; 
+}
+
+.top {
+  transform: translate3d(0, -250px, 0);
+}
+
+.bottom {
+  bottom: 0;
+  transform: scaleX(-100%);
+
+  --vertical-align: 100%;
+}

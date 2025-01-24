@@ -1,20 +1,16 @@
 .floating-header {
   position: fixed;
   display: flex;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.675rem;
   left: 0.375rem;
   right: 0.375rem;
   gap: 1.25rem;
   align-items: center;
   border-radius: 0.75rem;
-  max-width: 600px;
+  max-width: 768px;
   margin: 0.375rem auto;
   overflow: hidden;
   border: 1px solid transparent;
-}
-
-:root[data-theme="dark"] .floating-header {
-  border-color: #00000060;
 }
 
 :root[data-theme="light"] .floating-header {
@@ -46,7 +42,7 @@
   height: 2.5rem;
 }
 
-@media screen and (width <= calc(600px + 1rem)) {
+@media screen and (width <= calc(768px + 1rem)) {
   .floating-header {
     bottom: 0;
     top: auto; 
