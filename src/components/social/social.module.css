@@ -1,0 +1,10 @@
+.social {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 0.5rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+}

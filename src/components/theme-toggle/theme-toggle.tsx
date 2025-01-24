@@ -5,17 +5,18 @@ import {
   useTheme,
 } from "@/context/theme";
 import * as Popover from "@radix-ui/react-popover";
+import { clsx } from "clsx";
 import { useState } from "react";
 import { BiCheck, BiChevronDown } from "react-icons/bi";
 import styles from "./theme-toggle.module.css";
 
-export const ThemeToggle = () => {
+export const ThemeToggle = ({ variant }: { variant?: "filled" }) => {
   const [open, setOpen] = useState(false);
   const { theme, selectTheme, nextTheme, toggleTheme } = useTheme();
 
   const NextThemeIcon = themeIconMap[nextTheme];
   return (
-    <div className={styles.themeToggle}>
+    <div className={clsx(styles.themeToggle, variant && styles[variant])}>
       <button type="button" className={styles.iconButton} onClick={toggleTheme}>
         <NextThemeIcon />
       </button>

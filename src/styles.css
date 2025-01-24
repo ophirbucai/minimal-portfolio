@@ -30,6 +30,7 @@ body {
   text-rendering: optimizespeed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: cadetblue;
 }
 
 ul,

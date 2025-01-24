@@ -1,3 +1,4 @@
+import { FloatingHeader } from "@/components/floating-header/floating-header";
 import { GoButton } from "@/components/go-button/go-button";
 import { ThemeToggle } from "@/components/theme-toggle/theme-toggle";
 import { useState } from "react";
@@ -14,10 +15,11 @@ export function App() {
 
   return (
     <div>
-      <ThemeToggle />
+      <ThemeToggle variant="filled" />
       <GoButton type="button" loading={loading} onClick={send}>
         Submit
       </GoButton>
+      <FloatingHeader />
     </div>
   );
 }
