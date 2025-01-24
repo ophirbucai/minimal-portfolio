@@ -4,7 +4,7 @@
   justify-content: center;
   background-color: black;
   color: white;
-  padding: 0.625rem 1.125rem 0.625rem 0.625rem;
+  padding: 0.625rem;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -15,14 +15,26 @@
   gap: 0.3125rem;
 }
 
+.right {
+  --shift-x: 0.625rem;
+
+  padding-inline-start: 1.25rem;
+}
+
+.left {
+  --shift-x: -0.625rem;
+
+  padding-inline-end: 1.25rem;
+}
+
 .go-button .icon {
-  transform: translate3d(-0.625rem, 0, 0);
+  transform: translate3d(var(--shift-x), 0, 0);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s cubic-bezier(0.16, 1, 0.2, 1);
 }
 
 .go-button .text {
-  transform: translate3d(-0.3125rem, 0, 0);
+  transform: translate3d(calc((var(--shift-x)) / 2), 0, 0);
   transition: transform 0.3s ease;
 }
 

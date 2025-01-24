@@ -1,4 +1,5 @@
 import { FloatingHeader } from "@/components/floating-header/floating-header";
+import { Hero } from "@/components/hero/hero";
 import { Spots } from "@/components/spots/spots";
 import styles from "./app.module.css";
 
@@ -7,6 +8,7 @@ export function App() {
     <div className={styles.layout}>
       <Spots side="top" />
       <FloatingHeader />
+      <Hero />
       <footer className={styles.footer}>
         <Spots side="bottom" />
       </footer>
