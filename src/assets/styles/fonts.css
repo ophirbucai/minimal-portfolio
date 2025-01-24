@@ -1,110 +1,21 @@
-@font-face {
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-ThinItalic.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-ThinItalic.woff') format('woff');
-  font-weight: 200;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-Thin.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-Thin.woff') format('woff');
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-LightItalic.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-Light.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-Light.woff') format('woff');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-RegularItalic.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-RegularItalic.woff') format('woff');
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-Regular.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-Regular.woff') format('woff');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-MediumItalic.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-Medium.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-Medium.woff') format('woff');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-BoldItalic.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-BoldItalic.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-Bold.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-Bold.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-BlackItalic.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-BlackItalic.woff') format('woff');
-  font-weight: 900;
-  font-display: swap;
-  font-style: italic;
-}
-
-@font-face {  
-  font-family: Canela;
-  src: url('/src/assets/fonts/Canela/Canela-Black.woff2') format('woff2'),
-    url('/src/assets/fonts/Canela/Canela-Black.woff') format('woff');
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
-}
+@import url("@fontsource/inter/900.css");
+@import url("@fontsource/inter/900-italic.css");
+@import url("@fontsource/inter/800.css");
+@import url("@fontsource/inter/800-italic.css");
+@import url("@fontsource/inter/700.css");
+@import url("@fontsource/inter/700-italic.css");
+@import url("@fontsource/inter/600.css");
+@import url("@fontsource/inter/600-italic.css");
+@import url("@fontsource/inter/500.css");
+@import url("@fontsource/inter/500-italic.css");
+@import url("@fontsource/inter/400.css");
+@import url("@fontsource/inter/400-italic.css");
+@import url("@fontsource/inter/300.css");
+@import url("@fontsource/inter/300-italic.css");
+@import url("@fontsource/inter/200.css");
+@import url("@fontsource/inter/200-italic.css");
+@import url("@fontsource/inter/100.css");
+@import url("@fontsource/inter/100-italic.css");
 
 @font-face {  
   font-family: "NB International Pro";
@@ -167,4 +78,4 @@
   font-weight: 400;
   font-display: swap;
   font-style: normal;
-}
+} 

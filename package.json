@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@fontsource/inter": "^5.1.1",
     "@radix-ui/react-popover": "^1.1.5",
     "@radix-ui/react-slot": "^1.1.1",
     "clsx": "^2.1.1",

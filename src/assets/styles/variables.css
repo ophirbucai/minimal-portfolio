@@ -4,7 +4,8 @@
   --border-color: var(--base-border);
   --muted-text: color-mix(in srgb, var(--text-color) 70%, var(--background-color));
   --hover-background: color-mix(in srgb, var(--text-color) 5%, var(--background-color));
-  --font-sans: "NB International Pro", sans-serif;
+  --font-sans: "NB International Pro", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "NB International Pro", sans-serif;
+  --font-display: "Inter", var(--font-sans);
   --font-mono: "NB International Pro Mono", monospace;
   --font-serif: "Canela", serif;
   --transition-duration: 0.3s;
