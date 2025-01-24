@@ -44,6 +44,6 @@ export default defineConfig({
       reportsDirectory: "./coverage/minimal-portfolio",
       provider: "v8",
     },
-    setupFiles: "src/setupTests"
+    setupFiles: "src/setupTests",
   },
 });
