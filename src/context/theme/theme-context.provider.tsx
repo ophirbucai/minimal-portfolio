@@ -10,7 +10,7 @@ interface ThemeContextType {
   nextTheme: SystemThemeType;
 }
 
-const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
+const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const themeState = useRef(new ThemeState()).current;
