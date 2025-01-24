@@ -2,14 +2,23 @@
   position: fixed;
   display: flex;
   padding: 0.25rem 0.5rem;
-  border-color: var(--border-color);
   left: 0.25rem;
   right: 0.25rem;
-  gap: 0.5rem;
+  gap: 1.25rem;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   max-width: 600px;
   margin: 0.5rem auto;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+:root[data-theme="dark"] .floating-header {
+  border-color: #00000060;
+}
+
+:root[data-theme="light"] .floating-header {
+  border-color: #ffffff70;
 }
 
 .floating-header::before {
@@ -18,9 +27,8 @@
   content: '';
   background: var(--background-color);
   z-index: -1;
-  opacity: 66.67%;
+  opacity: 30%;
   backdrop-filter: blur(2px);
-  border-radius: inherit;
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
@@ -34,8 +42,8 @@
 }
 
 .logo {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 @media (width >= calc(600px + 1rem)) {
