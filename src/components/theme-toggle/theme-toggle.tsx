@@ -44,9 +44,7 @@ export const ThemeToggle = () => {
                 >
                   <Icon />
                   <span>{t}</span>
-                  {theme === t && (
-                    <BiCheck className={styles.checkIcon} />
-                  )}
+                  {theme === t && <BiCheck className={styles.checkIcon} />}
                 </button>
               );
             })}
