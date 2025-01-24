@@ -45,7 +45,7 @@ export const ThemeToggle = () => {
                   <Icon />
                   <span>{t}</span>
                   {theme === t && (
-                    <BiCheck fontSize="1.25rem" color="#19911a" />
+                    <BiCheck className={styles.checkIcon} />
                   )}
                 </button>
               );
