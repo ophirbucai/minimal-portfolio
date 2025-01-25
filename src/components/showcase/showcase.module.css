@@ -68,6 +68,7 @@
   background-image: linear-gradient(var(--background, rgb(36, 36, 36)), var(--hover-background));
   place-items: center;
   border-radius: 0.375rem;
+  object-fit: cover;
 }
 
 :root[data-theme="light"] .project-image {
