@@ -1,9 +1,9 @@
-import { AiOutlineArrowRight } from "react-icons/ai";
 import NotiToken from "@/assets/img/showcase/noti-token.svg";
-import Track from "@/assets/img/showcase/track.svg";
 import RecipesHub from "@/assets/img/showcase/recipes-hub.png";
-import styles from "./showcase.module.css";
+import Track from "@/assets/img/showcase/track.svg";
 import { clsx } from "clsx";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import styles from "./showcase.module.css";
 
 export const Showcase = () => {
   return (
