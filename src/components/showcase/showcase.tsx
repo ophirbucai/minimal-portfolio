@@ -3,8 +3,8 @@ import RecipesHub from "@/assets/img/showcase/recipes-hub.png";
 import Track from "@/assets/img/showcase/track.svg";
 import { clsx } from "clsx";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import styles from "./showcase.module.css";
 import { Card } from "../card/card";
+import styles from "./showcase.module.css";
 
 export const Showcase = () => {
   return (
