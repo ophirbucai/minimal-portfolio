@@ -12,11 +12,12 @@
   overflow: hidden;
   border: 1px solid transparent;
   z-index: 1;
+  backdrop-filter: blur(4px);
   isolation: isolate;
 }
 
 :root[data-theme="light"] .floating-header {
-  border-color: #ffffff70;
+  border-color: #ffffff80;
 }
 
 .floating-header::before {
@@ -26,7 +27,6 @@
   background: var(--background-color);
   z-index: -1;
   opacity: 30%;
-  backdrop-filter: blur(2px);
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
