@@ -1,0 +1,14 @@
+
+.card {
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+
+:root[data-theme="light"] .card {
+  border-color: #F6F6F6;
+  background-color: #F6F6F650;
+}
