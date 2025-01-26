@@ -1,3 +1,1 @@
-exit 1
-
-npm lint:fix
+npm run lint:fix
