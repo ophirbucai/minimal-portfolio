@@ -8,6 +8,12 @@ module.exports = {
     "@stylistic/indentation": 2,
     "color-function-notation": null,
     "alpha-value-notation": null,
+    "property-no-unknown": [
+      true,
+      {
+        ignoreProperties: ["composes", "compose-with"],
+      },
+    ],
   },
   ignoreFiles: [
     "**/node_modules/**",

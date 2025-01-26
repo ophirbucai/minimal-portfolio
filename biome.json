@@ -35,6 +35,9 @@
   "css": {
     "formatter": {
       "enabled": false
+    },
+    "parser": {
+      "cssModules": true
     }
   }
 }
