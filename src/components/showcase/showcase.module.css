@@ -1,8 +1,8 @@
 .showcase {
   max-width: 1280px;
-  margin: 0 auto;
   color: var(--text-color);
-  padding: 25vh 1rem 1rem;
+  margin: 25vh auto 0;
+  padding: 1rem;
 }
 
 .title {

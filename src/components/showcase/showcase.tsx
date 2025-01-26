@@ -9,10 +9,12 @@ import styles from "./showcase.module.css";
 
 export const Showcase = () => {
   return (
-    <section className={styles.showcase} {...useScrollFade()}>
-      <h2 className={styles.title}>Selected Work</h2>
+    <section className={styles.showcase}>
+      <h2 className={styles.title} {...useScrollFade()}>
+        Selected Work
+      </h2>
       <div className={styles.cards}>
-        <Card asChild>
+        <Card asChild {...useScrollFade()}>
           <article>
             <img src={NotiToken} alt="Noti Token Logo" className={styles.cardIcon} />
             <h3 className={styles.cardTitle}>
@@ -36,7 +38,7 @@ export const Showcase = () => {
             </a>
           </article>
         </Card>
-        <Card asChild>
+        <Card asChild {...useScrollFade()}>
           <article>
             <span className={clsx(styles.cardIcon, styles.cardImage, styles.spotifik)}>
               <img src={Track} alt="Project by Ophir Bucai" />
@@ -58,7 +60,7 @@ export const Showcase = () => {
             </a>
           </article>
         </Card>
-        <Card asChild>
+        <Card asChild {...useScrollFade()}>
           <article>
             <img
               src={RecipesHub}

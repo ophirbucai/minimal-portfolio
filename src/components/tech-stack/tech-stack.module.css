@@ -1,0 +1,36 @@
+.tech-stack {
+  max-width: 1280px;
+  color: var(--text-color);
+  margin: 25vh auto 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card img {
+  width: 60px;
+}
+
+.badge {
+  margin-inline-start: auto;
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 2em;
+  padding: 0.375rem 0.75rem;
+}

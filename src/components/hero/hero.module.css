@@ -1,6 +1,6 @@
 .hero {
-  margin: 0 auto;
-  padding: 25vh 1rem 1rem;
+  margin: 25vh auto 0;
+  padding: 1rem;
   max-width: 768px;
   color: var(--text-color);
   text-align: center;
