@@ -5,10 +5,11 @@ import { clsx } from "clsx";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Card } from "../card/card";
 import styles from "./showcase.module.css";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 export const Showcase = () => {
   return (
-    <section className={styles.showcase}>
+    <section className={styles.showcase} {...useScrollFade()}>
       <h2 className={styles.title}>Selected Work</h2>
       <div className={styles.cards}>
         <Card asChild>

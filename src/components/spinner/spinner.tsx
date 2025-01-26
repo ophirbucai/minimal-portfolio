@@ -10,7 +10,7 @@ type SpinnerType = "fade" | "fade-more" | "fade-quick";
 
 interface SpinnerProps {
   type: SpinnerType;
-  className: string;
+  className?: string;
   lines?: number;
 }
 

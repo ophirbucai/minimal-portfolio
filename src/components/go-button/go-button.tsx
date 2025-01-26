@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { clsx } from "clsx";
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import { BiSend } from "react-icons/bi";
 import { Spinner } from "../spinner/spinner";
 import styles from "./go-button.module.css";
@@ -18,13 +18,7 @@ export const GoButton = forwardRef<HTMLButtonElement, GoButtonProps>(
     const Comp = asChild ? Slot : "button";
     const Icon = icon ? icon : BiSend;
 
-    function renderIcon() {
-      return loading ? (
-        <Spinner type="fade-quick" className={styles.icon} />
-      ) : (
-        <Icon className={styles.icon} />
-      );
-    }
+    const renderIcon = () => (loading ? <Spinner type="fade-quick" /> : <Icon />);
 
     return (
       <Comp
@@ -33,9 +27,9 @@ export const GoButton = forwardRef<HTMLButtonElement, GoButtonProps>(
         ref={ref}
         {...props}
       >
-        {side === "left" && renderIcon()}
+        {side === "left" && <span className={styles.leftIcon}>{renderIcon()}</span>}
         <span className={styles.text}>{children}</span>
-        {side === "right" && renderIcon()}
+        {side === "right" && <span className={styles.rightIcon}>{renderIcon()}</span>}
       </Comp>
     );
   },

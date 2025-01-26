@@ -1,12 +1,12 @@
 import { clsx } from "clsx";
 import { GoButton } from "../go-button/go-button";
 import styles from "./hero.module.css";
+import { useScrollFade } from "@/hooks/useScrollFade";
 
 export const Hero = () => {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} {...useScrollFade()}>
       <h1 className={styles.title}>
-        <span className={clsx(styles.titleHi, styles.secondaryColor)}>Hi! 👋</span>
         <span className={clsx(styles.titleIAm, styles.secondaryColor)}>I'm</span>{" "}
         <span className={styles.titleName}>Ophir Bucai</span>
       </h1>

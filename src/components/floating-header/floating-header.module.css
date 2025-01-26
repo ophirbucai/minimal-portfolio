@@ -10,24 +10,22 @@
   max-width: 768px;
   margin: 1.375rem auto;
   overflow: hidden;
-  border: 1px solid transparent;
   z-index: 1;
   backdrop-filter: blur(4px);
   isolation: isolate;
 }
 
 :root[data-theme="light"] .floating-header {
-  border-color: #ffffff80;
+  box-shadow: 0 0 0 1px #fff8;
 }
 
 .floating-header::before {
   position: absolute;
   inset: 0;
   content: '';
-  background: var(--background-color);
+  background: color-mix(in srgb, var(--background-color) 96%, var(--text-color));
   z-index: -1;
   opacity: 30%;
-  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
 .navigation {

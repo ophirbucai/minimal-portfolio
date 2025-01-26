@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ThemeState } from "./theme-context.state";
 import type { SystemThemeType, ThemeType } from "./theme-context.types";
 
@@ -18,7 +18,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [systemTheme, setSystemTheme] = useState(themeState.systemTheme);
   const [nextTheme, setNextTheme] = useState(themeState.nextTheme);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     themeState.applyTheme();
     return () => themeState.cleanup();
   }, [themeState]);

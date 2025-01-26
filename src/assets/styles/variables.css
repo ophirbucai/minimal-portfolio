@@ -1,6 +1,7 @@
 :root {
   --background-color: var(--base-background);
   --text-color: var(--base-text);
+  --text-secondary: #808080;
   --border-color: var(--base-border);
   --muted-text: color-mix(in srgb, var(--text-color) 70%, var(--background-color));
   --hover-background: color-mix(in srgb, var(--text-color) 5%, var(--background-color));
@@ -9,18 +10,23 @@
   --font-mono: "NB International Pro Mono", monospace;
   --font-serif: "Canela", serif;
   --transition-duration: 0.3s;
+  --tighter: -0.0225em;
+  --primary-color-500: rgb(76, 13, 248);
+  --primary-color-550: rgb(64, 4, 230);
 }
 
 :root[data-theme="light"] {
-  --base-background: #fff;
+  --base-background: rgb(255, 255, 255);
   --base-text: #1a1a1a;
-  --base-border: color-mix(in srgb, var(--base-text) 20%, var(--base-background));
+  --base-border: #EBEBEB;
+  --card-background: #F6F6F6;
 }
 
 :root[data-theme="dark"] {
-  --base-background: #1a1a1a;
+  --base-background: rgb(15, 17, 21);
   --base-text: #fff;
-  --base-border: color-mix(in srgb, var(--base-text) 20%, var(--base-background));
+  --base-border: rgb(24, 26, 31);
+  --card-background:  rgb(18, 20, 24);
 }
 
 :root, :root[data-theme="light"], :root[data-theme="dark"] {

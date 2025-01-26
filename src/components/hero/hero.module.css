@@ -1,9 +1,9 @@
 .hero {
-  margin: 10rem auto 0;
-  padding: 1rem;
-  display: grid;
+  margin: 0 auto;
+  padding: 25vh 1rem 1rem;
   max-width: 768px;
-  color: var(--text-color)
+  color: var(--text-color);
+  text-align: center;
 }
 
 .title {
@@ -12,17 +12,13 @@
   font-family: var(--font-display);
 }
 
-.title-hi {
-  display: block;
-}
-
 .secondary-color {
-  color: #808080;
+  color: var(--text-secondary);
 }
 
 .description {
   font-size: 1.25rem;
-  margin: 2rem 0;
+  margin: 1rem 0 2rem;
   font-family: var(--font-display);
 }
 
@@ -37,8 +33,12 @@
 }
 
 .contact {
-  background-color: var(--hover-background);
   color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.contact:hover {
+  color: whitesmoke;
 }
 
 :root[data-theme="dark"] .contact {
@@ -46,7 +46,7 @@
 }
 
 :root[data-theme="light"] .contact {
-  --text-color: #808080;
+  --text-color: var(--text-secondary);
 }
 
 .resume {
@@ -61,18 +61,20 @@
   overflow: hidden;
   position: relative;
   font-family: var(--font-sans);
-  transition: background-color var(--transition-duration) ease;
+  transition: filter 0.15s ease;
   gap: 0.3125rem;
-  background-image: linear-gradient(to bottom, #1A1A1A, transparent);
-  background-color: #131313;
-  box-shadow: 0 -0.125rem 0.625rem var(--hover-background);
+  background-image: linear-gradient(to bottom, var(--primary-color-500), var(--primary-color-550));
 }
 
 .resume:hover {
-  background-color: rgb(16, 16, 16);
+  filter: brightness(110%);
 }
 
 @media screen and (width >= calc(768px + 1rem)) {
+  .hero {
+    text-align: start;
+  }
+  
   .title-hi {
     display: none;
   }
@@ -82,8 +84,7 @@
   }
 
   .description {
-    font-size: 1.5rem;
-    text-wrap: balance;
+    font-size: 1.375rem;
   }
 
   .call-to-action {
