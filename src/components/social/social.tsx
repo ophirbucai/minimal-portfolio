@@ -4,11 +4,11 @@ import styles from "./social.module.css";
 const SOCIAL_LINKS = [
   {
     href: "https://linkedin.com/in/ophirbucai",
-    children: <BiLogoLinkedin className={styles.socialIcon} aria-label="Ophir Bucai on Linkedin" />,
+    children: <BiLogoLinkedin aria-label="Ophir Bucai on Linkedin" className={styles.socialIcon} />,
   },
   {
     href: "https://github.com/ophirbucai",
-    children: <BiLogoGithub className={styles.socialIcon} aria-label="Ophir Bucai on GitHub" />,
+    children: <BiLogoGithub aria-label="Ophir Bucai on GitHub" className={styles.socialIcon} />,
   },
 ] satisfies React.ComponentProps<"a">[];
 

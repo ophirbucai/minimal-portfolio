@@ -5,9 +5,9 @@ const HASH_ROUTES = [{ href: "#", children: "Home" }] satisfies React.ComponentP
 export const Menu = () => {
   return (
     <ul className={styles.menu}>
-      {HASH_ROUTES.map((a) => (
-        <li key={a.href}>
-          <a {...a} />
+      {HASH_ROUTES.map(({ children, ...props }) => (
+        <li key={props.href}>
+          <a {...props}>{children}</a>
         </li>
       ))}
     </ul>

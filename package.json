@@ -8,7 +8,7 @@
     "test": "nx test",
     "format": "biome format --write .",
     "lint": "nx run-many --target=lint && biome lint . && stylelint \"**/*.css\"",
-    "lint:fix": "biome check --write . && stylelint \"**/*.css\" --fix"
+    "lint:fix": "nx run-many --target=lint --fix && biome check --write . && stylelint \"**/*.css\" --fix"
   },
   "private": true,
   "dependencies": {

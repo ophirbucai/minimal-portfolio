@@ -24,6 +24,7 @@ const CONTENT = [
   { icon: Zustand, name: "Zustand", badge: "Global State" },
   { icon: Sass, name: "Sass", badge: "CSS" },
 ] as const;
+type CardProps = (typeof CONTENT)[number];
 
 export const TechStack = () => {
   return (
@@ -32,16 +33,22 @@ export const TechStack = () => {
         Dev & Design
       </h2>
       <div className={styles.cards}>
-        {CONTENT.map(({ icon, name, badge }) => (
-          <Card className={styles.card} key={name} asChild {...useScrollFade()}>
-            <article>
-              <img src={icon} alt={name} />
-              {name}
-              <span className={styles.badge}>{badge}</span>
-            </article>
-          </Card>
+        {CONTENT.map((props) => (
+          <TechStackCard key={props.name} {...props} />
         ))}
       </div>
     </section>
+  );
+};
+
+const TechStackCard = ({ name, icon, badge }: CardProps) => {
+  return (
+    <Card asChild className={styles.card} {...useScrollFade()}>
+      <article>
+        <img alt={name} src={icon} />
+        {name}
+        <span className={styles.badge}>{badge}</span>
+      </article>
+    </Card>
   );
 };

@@ -6,7 +6,7 @@ import styles from "./floating-header.module.css";
 export const FloatingHeader = () => {
   return (
     <header className={styles.floatingHeader}>
-      <img className={styles.logo} src="/favicon.ico" alt="" />
+      <img alt="Develophir Logo" className={styles.logo} src="/favicon.ico" />
       <nav className={styles.navigation}>
         <Menu />
         <Social />

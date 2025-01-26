@@ -17,9 +17,9 @@ interface SpinnerProps {
 export const Spinner: React.FC<SpinnerProps> = ({ type, className, lines = 13 }) => {
   const positions = useMemo(() => generatePositions(lines), [lines]);
   return (
-    <div className={`${styles.spinner} ${className}`} aria-busy="true" aria-live="polite">
+    <div aria-busy="true" aria-live="polite" className={`${styles.spinner} ${className}`}>
       {positions.map((position, index) => (
-        <div className={styles.line} key={position}>
+        <div key={position} className={styles.line}>
           <div
             className={`${styles.inner} ${styles[type]}`}
             style={{

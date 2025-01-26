@@ -12,7 +12,7 @@ export const ThemeToggle = ({ variant }: { variant?: "filled" }) => {
   const NextThemeIcon = themeIconMap[nextTheme];
   return (
     <div className={clsx(styles.themeToggle, variant && styles[variant])}>
-      <button type="button" className={styles.iconButton} onClick={toggleTheme}>
+      <button className={styles.iconButton} type="button" onClick={toggleTheme}>
         <NextThemeIcon />
       </button>
       <Popover.Root open={open} onOpenChange={setOpen}>
@@ -20,19 +20,19 @@ export const ThemeToggle = ({ variant }: { variant?: "filled" }) => {
           <BiChevronDown data-icon="chevron-down" size="0.875rem" />
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content className={styles.content} aria-label="Theme options" role="menu">
+          <Popover.Content aria-label="Theme options" className={styles.content} role="menu">
             {THEMES.map((t) => {
               const Icon = (t === theme ? activeThemeIconMap : themeIconMap)[t];
               return (
                 <button
                   key={t}
+                  aria-current={theme === t}
+                  className={styles.item}
+                  type="button"
                   onClick={() => {
                     selectTheme(t);
                     setOpen(false);
                   }}
-                  aria-current={theme === t}
-                  type="button"
-                  className={styles.item}
                 >
                   <Icon />
                   <span>{t}</span>

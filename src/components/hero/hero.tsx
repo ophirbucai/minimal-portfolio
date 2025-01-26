@@ -18,7 +18,7 @@ export const Hero = () => {
         <button className={styles.resume} type="button">
           See my resume
         </button>
-        <GoButton loading={false} className={styles.contact} type="button" side="right">
+        <GoButton className={styles.contact} loading={false} side="right" type="button">
           Get in touch
         </GoButton>
       </div>

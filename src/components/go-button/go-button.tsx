@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { clsx } from "clsx";
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 import { BiSend } from "react-icons/bi";
 import { Spinner } from "../spinner/spinner";
 import styles from "./go-button.module.css";
@@ -22,9 +22,9 @@ export const GoButton = forwardRef<HTMLButtonElement, GoButtonProps>(
 
     return (
       <Comp
+        ref={ref}
         className={clsx(styles.goButton, styles[side], className)}
         data-loading={loading}
-        ref={ref}
         {...props}
       >
         {side === "left" && <span className={styles.leftIcon}>{renderIcon()}</span>}

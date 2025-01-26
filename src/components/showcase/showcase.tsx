@@ -16,7 +16,7 @@ export const Showcase = () => {
       <div className={styles.cards}>
         <Card asChild {...useScrollFade()}>
           <article>
-            <img src={NotiToken} alt="Noti Token Logo" className={styles.cardIcon} />
+            <img alt="Noti Token Logo" className={styles.cardIcon} src={NotiToken} />
             <h3 className={styles.cardTitle}>
               Noti: Crypto Sniping & Prelaunch Investment Platform
             </h3>
@@ -28,10 +28,10 @@ export const Showcase = () => {
               invest in upcoming tokens.
             </p>
             <a
-              href="https://app.noti.io"
-              target="_blank"
-              rel="noopener noreferrer"
               className={styles.cardButton}
+              href="https://app.noti.io"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               Visit dashboard
               <AiOutlineArrowRight className={styles.cardButtonIcon} />
@@ -41,7 +41,7 @@ export const Showcase = () => {
         <Card asChild {...useScrollFade()}>
           <article>
             <span className={clsx(styles.cardIcon, styles.cardImage, styles.spotifik)}>
-              <img src={Track} alt="Project by Ophir Bucai" />
+              <img alt="Project by Ophir Bucai" src={Track} />
             </span>
             <h3 className={styles.cardTitle}>Spotifik: Personalized Music Curation Platform</h3>
             <p className={styles.cardDescription}>
@@ -50,10 +50,10 @@ export const Showcase = () => {
               genre-based playlists and integration with third-party APIs for music metadata.
             </p>
             <a
-              href="https://song-server-va7s.onrender.com/"
               className={styles.cardButton}
-              target="_blank"
+              href="https://song-server-va7s.onrender.com/"
               rel="noopener noreferrer"
+              target="_blank"
             >
               Listen on the app
               <AiOutlineArrowRight className={styles.cardButtonIcon} />
@@ -63,9 +63,9 @@ export const Showcase = () => {
         <Card asChild {...useScrollFade()}>
           <article>
             <img
-              src={RecipesHub}
               alt="Project by Ophir Bucai"
               className={clsx(styles.cardIcon, styles.cardImage)}
+              src={RecipesHub}
             />
             <h3 className={styles.cardTitle}>Recipes Hub: Share, Discover, and Cook Together</h3>
             <p className={styles.cardDescription}>
@@ -77,10 +77,10 @@ export const Showcase = () => {
               browsing in the kitchen or on the go.
             </p>
             <a
-              href="https://"
               className={styles.cardButton}
-              target="_blank"
+              href="https://"
               rel="noopener noreferrer"
+              target="_blank"
             >
               Explore the hub
               <AiOutlineArrowRight className={styles.cardButtonIcon} />
