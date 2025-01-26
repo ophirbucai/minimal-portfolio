@@ -3,3 +3,8 @@
   align-items: center;
   gap: 1.25rem;
 }
+
+.menu button {
+  color: var(--text-color);
+  font-size: 0.875rem;
+}

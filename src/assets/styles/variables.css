@@ -1,5 +1,6 @@
 :root {
-  --background-color: var(--base-background);
+  --overlay-color: rgba(var(--base-background-rgb), 0.75);
+  --background-color: rgb(var(--base-background-rgb));
   --text-color: var(--base-text);
   --text-secondary: #808080;
   --border-color: var(--base-border);
@@ -16,14 +17,14 @@
 }
 
 :root[data-theme="light"] {
-  --base-background: rgb(255, 255, 255);
+  --base-background-rgb: 255, 255, 255;
   --base-text: #1a1a1a;
   --base-border: #EBEBEB;
   --card-background: #F6F6F6;
 }
 
 :root[data-theme="dark"] {
-  --base-background: rgb(15, 17, 21);
+  --base-background-rgb: 15, 17, 21;
   --base-text: #fff;
   --base-border: rgb(24, 26, 31);
   --card-background:  rgb(18, 20, 24);

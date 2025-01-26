@@ -42,9 +42,10 @@
   height: 2.5rem;
 }
 
+/* 
 @media screen and (width <= calc(768px + 1rem)) {
   .floating-header {
     bottom: 0;
     top: auto; 
   }
-}
+} */

@@ -37,16 +37,20 @@
   transition: color 0.2s ease;
 }
 
-.contact:hover {
-  color: whitesmoke;
-}
-
 :root[data-theme="dark"] .contact {
   --text-color: #bdbdbd;
 }
 
 :root[data-theme="light"] .contact {
   --text-color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .contact:hover {
+  --text-color: whitesmoke;
+}
+
+:root[data-theme="light"] .contact:hover {
+  --text-color: var(--text-color);
 }
 
 .resume {

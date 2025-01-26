@@ -1,4 +1,5 @@
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { DialogTrigger } from "@radix-ui/react-dialog";
 import { clsx } from "clsx";
 import { GoButton } from "../go-button/go-button";
 import styles from "./hero.module.css";
@@ -18,9 +19,11 @@ export const Hero = () => {
         <button className={styles.resume} type="button">
           See my resume
         </button>
-        <GoButton className={styles.contact} loading={false} side="right" type="button">
-          Get in touch
-        </GoButton>
+        <DialogTrigger asChild>
+          <GoButton className={styles.contact} loading={false} side="right" type="button">
+            Get in touch
+          </GoButton>
+        </DialogTrigger>
       </div>
     </section>
   );

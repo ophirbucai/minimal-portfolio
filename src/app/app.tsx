@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/contact-form/contact-form";
 import { FloatingHeader } from "@/components/floating-header/floating-header";
 import { Hero } from "@/components/hero/hero";
 import { Showcase } from "@/components/showcase/showcase";
@@ -16,6 +17,7 @@ export function App() {
       <footer className={styles.footer}>
         <Spots side="bottom" />
       </footer>
+      <ContactForm />
     </div>
   );
 }
