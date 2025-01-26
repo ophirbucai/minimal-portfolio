@@ -1,11 +1,11 @@
 import NotiToken from "@/assets/img/showcase/noti-token.svg";
 import RecipesHub from "@/assets/img/showcase/recipes-hub.png";
 import Track from "@/assets/img/showcase/track.svg";
+import { useScrollFade } from "@/hooks/useScrollFade";
 import { clsx } from "clsx";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Card } from "../card/card";
 import styles from "./showcase.module.css";
-import { useScrollFade } from "@/hooks/useScrollFade";
 
 export const Showcase = () => {
   return (

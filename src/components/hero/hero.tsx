@@ -1,7 +1,7 @@
+import { useScrollFade } from "@/hooks/useScrollFade";
 import { clsx } from "clsx";
 import { GoButton } from "../go-button/go-button";
 import styles from "./hero.module.css";
-import { useScrollFade } from "@/hooks/useScrollFade";
 
 export const Hero = () => {
   return (

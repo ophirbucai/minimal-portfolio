@@ -1,4 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { ThemeState } from "./theme-context.state";
 import type { SystemThemeType, ThemeType } from "./theme-context.types";
 
