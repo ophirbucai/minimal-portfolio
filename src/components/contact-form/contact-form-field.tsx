@@ -17,7 +17,7 @@ export const ContactFormField = ({ name, label, type = "text", placeholder, rows
     formState: { errors, touchedFields },
   } = useFormContext();
 
-  const hasError = errors[name] && (touchedFields[name] || type === "email");
+  const hasError = errors[name] && touchedFields[name];
   const Component = rows ? "textarea" : "input";
 
   return (
