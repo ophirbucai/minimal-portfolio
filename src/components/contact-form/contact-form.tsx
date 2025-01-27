@@ -1,3 +1,4 @@
+import { useContactForm } from "@/hooks/useContactForm";
 import {
   DialogClose,
   DialogContent,
@@ -6,17 +7,15 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@radix-ui/react-dialog";
-import { useState } from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiOutlineCloseCircle, AiOutlineCheckCircle } from "react-icons/ai";
 import { GoButton } from "../go-button/go-button";
 import styles from "./contact-form.module.css";
+import { FormProvider } from "react-hook-form";
+import { ContactFormField } from "./contact-form-field";
 
 export const ContactForm = () => {
-  const [loading] = useState(false);
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    console.log();
-  }
+  const form = useContactForm();
+  const { formState } = form;
 
   return (
     <DialogPortal>
@@ -31,65 +30,47 @@ export const ContactForm = () => {
             <AiOutlineCloseCircle className={styles.dialogClose} />
           </DialogClose>
         </header>
-        <form className={styles.contactForm} method="POST" onSubmit={handleSubmit}>
-          <fieldset className={styles.fieldset}>
-            <label className={styles.label} htmlFor="email">
-              Email:
-            </label>
-            <input
-              required
-              aria-describedby="email-error"
-              className={styles.input}
+
+        <FormProvider {...form}>
+          <form className={styles.contactForm} onSubmit={form.onSubmit} noValidate>
+            <ContactFormField
               name="email"
-              placeholder="wonderful@world.io"
+              label="Email"
               type="email"
+              placeholder="hello@company.com"
             />
-          </fieldset>
 
-          <fieldset className={styles.fieldset}>
-            <label className={styles.label} htmlFor="name">
-              Name:
-            </label>
-            <input
-              className={styles.input}
-              minLength={2}
-              name="name"
-              placeholder="Your name here"
-              type="text"
-            />
-          </fieldset>
+            <ContactFormField name="name" label="Name" placeholder="Your name" />
 
-          <fieldset className={styles.fieldset}>
-            <label className={styles.label} htmlFor="subject">
-              Subject:
-            </label>
-            <input
-              required
-              className={styles.input}
+            <ContactFormField
               name="subject"
-              placeholder="Inpiring topic ✨"
-              type="text"
+              label="Subject"
+              placeholder="What can we build together?"
             />
-          </fieldset>
 
-          <fieldset className={styles.fieldset}>
-            <label className={styles.label} htmlFor="message">
-              Message
-            </label>
-            <textarea
-              required
-              className={styles.textarea}
+            <ContactFormField
               name="message"
-              placeholder="Details of the project or job, tehcnologies would be helpful for me to understand more about"
+              label="Message"
               rows={7}
+              placeholder="Tell me about your project needs, tech stack, and timeline"
             />
-          </fieldset>
-          <footer className={styles.footer}>
-            <GoButton disabled className={styles.submitButton} loading={loading} type="submit">
-              {loading ? "Sending..." : "Submit"}
-            </GoButton>
-          </footer>
-        </form>
+
+            <footer className={styles.footer}>
+              {formState.isSubmitSuccessful && (
+                <span className={styles.success}>
+                  <AiOutlineCheckCircle /> Thanks for reaching out! I'll get back to you soon.
+                </span>
+              )}
+              <GoButton
+                className={styles.submitButton}
+                loading={formState.isSubmitting}
+                type="submit"
+              >
+                {formState.isSubmitting ? "Sending..." : "Submit"}
+              </GoButton>
+            </footer>
+          </form>
+        </FormProvider>
       </DialogContent>
     </DialogPortal>
   );

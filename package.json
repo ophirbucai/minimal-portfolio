@@ -14,6 +14,7 @@
   "private": true,
   "dependencies": {
     "@fontsource/inter": "^5.1.1",
+    "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-popover": "^1.1.5",
     "@radix-ui/react-slot": "^1.1.1",
@@ -21,7 +22,9 @@
     "motion": "^12.0.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-icons": "^5.4.0"
+    "react-hook-form": "^7.54.2",
+    "react-icons": "^5.4.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
