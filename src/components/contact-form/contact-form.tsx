@@ -1,3 +1,4 @@
+import dialogStyles from "@/assets/styles/dialog.module.css";
 import { useContactForm } from "@/hooks/useContactForm";
 import {
   DialogClose,
@@ -19,20 +20,26 @@ export const ContactForm = () => {
 
   return (
     <DialogPortal>
-      <DialogOverlay className={styles.dialogOverlay} />
-      <DialogContent className={styles.dialogContent} onCloseAutoFocus={(e) => e.preventDefault()}>
-        <DialogTitle className={styles.dialogTitle}>Get in touch</DialogTitle>
-        <header className={styles.dialogHeader}>
-          <DialogDescription className={styles.dialogDescription}>
-            Let's build something awesome
-          </DialogDescription>
-          <DialogClose>
-            <AiOutlineCloseCircle className={styles.dialogClose} />
+      <DialogOverlay className={dialogStyles.dialogOverlay} />
+      <DialogContent
+        className={dialogStyles.dialogContent}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
+        <header className={dialogStyles.dialogHeader}>
+          <div>
+            <DialogTitle className={dialogStyles.dialogTitle}>Get in touch</DialogTitle>
+            <DialogDescription className={dialogStyles.dialogDescription}>
+              Let's build something awesome
+            </DialogDescription>
+          </div>
+          <DialogClose className={dialogStyles.dialogHeaderButton}>
+            <AiOutlineCloseCircle />
           </DialogClose>
         </header>
 
         <FormProvider {...form}>
-          <form noValidate className={styles.contactForm} onSubmit={form.onSubmit}>
+          <form noValidate className={dialogStyles.dialogBody} onSubmit={form.onSubmit}>
             <ContactFormField
               label="Email"
               name="email"

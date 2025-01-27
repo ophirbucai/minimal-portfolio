@@ -6,7 +6,11 @@ export const contactFormSchema = z.object({
   subject: z.string().trim().optional().default("New submission - Develophir Contact Form"),
   message: z.string().trim().min(2, { message: "This field has to be filled." }),
   name: z.string().trim().optional(),
-  email: z.string().trim().min(1, { message: "Please fill out your email." }).email({ message: "This is not a valid email." }),
+  email: z
+    .string()
+    .trim()
+    .min(1, { message: "Please fill out your email." })
+    .email({ message: "This is not a valid email." }),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

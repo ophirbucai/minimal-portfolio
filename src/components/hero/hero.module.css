@@ -53,27 +53,6 @@
   --text-color: var(--text-color);
 }
 
-.resume {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 0.625rem 1.25rem;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  font-family: var(--font-sans);
-  transition: filter 0.15s ease;
-  gap: 0.3125rem;
-  background-image: linear-gradient(to bottom, var(--primary-color-500), var(--primary-color-550));
-}
-
-.resume:hover {
-  filter: brightness(110%);
-}
-
 @media screen and (width >= calc(768px + 1rem)) {
   .hero {
     text-align: start;

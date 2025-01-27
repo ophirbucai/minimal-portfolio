@@ -2,6 +2,7 @@ import { useScrollFade } from "@/hooks/useScrollFade";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import { clsx } from "clsx";
 import { GoButton } from "../go-button/go-button";
+import { ResumeModal } from "../resume-modal/resume-modal";
 import styles from "./hero.module.css";
 
 export const Hero = () => {
@@ -16,9 +17,7 @@ export const Hero = () => {
         in building modern <span className="nobr">web-based</span> apps.
       </p>
       <div className={styles.callToAction}>
-        <button className={styles.resume} type="button">
-          See my resume
-        </button>
+        <ResumeModal />
         <DialogTrigger asChild>
           <GoButton className={styles.contact} loading={false} side="right" type="button">
             Get in touch
