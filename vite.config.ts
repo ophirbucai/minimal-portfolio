@@ -6,7 +6,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: "./node_modules/.vite/minimal-portfolio",
+  cacheDir: "./node_modules/.vite",
   server: {
     port: 4200,
     host: "localhost",
@@ -27,7 +27,7 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
   build: {
-    outDir: "./dist/minimal-portfolio",
+    outDir: "./dist",
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
@@ -41,7 +41,7 @@ export default defineConfig({
     include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     reporters: ["default"],
     coverage: {
-      reportsDirectory: "./coverage/minimal-portfolio",
+      reportsDirectory: "./coverage",
       provider: "v8",
     },
     setupFiles: "src/setupTests",
