@@ -9,7 +9,7 @@
 
 .dialog-overlay {
   background-color: var(--overlay-color);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   position: fixed;
   inset: 0;
   animation: overlay-show var(--transition-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
