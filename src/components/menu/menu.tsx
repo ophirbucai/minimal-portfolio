@@ -4,12 +4,12 @@ import styles from "./menu.module.css";
 export const Menu = () => {
   return (
     <ul className={styles.menu}>
-      <li>
-        <button type="button">About</button>
-      </li>
-      <li>
+      {/* <li>
         <button type="button">Work</button>
       </li>
+      <li>
+        <button type="button">Skills</button>
+      </li> */}
       <li>
         <DialogTrigger>Contact</DialogTrigger>
       </li>
