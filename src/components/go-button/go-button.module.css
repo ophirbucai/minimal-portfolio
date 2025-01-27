@@ -9,6 +9,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  min-width: max-content;
 }
 
 .icon {
@@ -20,12 +21,17 @@
   transition: transform var(--transition-duration) ease;
 }
 
-.go-button.right .text {
+.right .text {
   transform: translate3d(0.625rem, 0, 0);
 }
 
-.go-button.left .text {
+.left .text {
   transform: translate3d(-0.625rem, 0, 0);
+}
+
+.go-button:hover .text,
+.go-button.loading .text {
+  transform: translate3d(0, 0, 0);
 }
 
 .right-icon {
@@ -39,12 +45,8 @@
   composes: icon;
 }
 
-
-.go-button:hover .icon {
+.go-button:hover .icon,
+.go-button.loading .icon {
   transform: translate3d(0, 0, 0);
   opacity: 1;
-}
-
-.go-button:hover .text {
-  transform: translate3d(0, 0, 0);
 }

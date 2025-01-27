@@ -1,7 +1,7 @@
-import { useFormContext } from "react-hook-form";
-import styles from "./contact-form.module.css";
-import { ContactFormValidationError } from "./contact-form-validation-error";
 import { clsx } from "clsx";
+import { useFormContext } from "react-hook-form";
+import { ContactFormValidationError } from "./contact-form-validation-error";
+import styles from "./contact-form.module.css";
 
 type Props = {
   name: string;
@@ -27,13 +27,13 @@ export const ContactFormField = ({ name, label, type = "text", placeholder, rows
       </label>
       <Component
         {...register(name)}
-        id={name}
+        aria-describedby={hasError ? `${name}-error` : undefined}
+        aria-invalid={hasError ? "true" : "false"}
         className={styles[Component === "textarea" ? "textarea" : "input"]}
-        type={type}
+        id={name}
         placeholder={placeholder}
         rows={rows}
-        aria-invalid={hasError ? "true" : "false"}
-        aria-describedby={hasError ? `${name}-error` : undefined}
+        type={type}
       />
       <ContactFormValidationError name={name} />
     </fieldset>

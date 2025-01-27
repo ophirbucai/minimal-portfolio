@@ -22,10 +22,9 @@ export const GoButton = forwardRef<HTMLButtonElement, GoButtonProps>(
 
     return (
       <Comp
-        ref={ref}
-        className={clsx(styles.goButton, styles[side], className)}
-        data-loading={loading}
         {...props}
+        ref={ref}
+        className={clsx(styles.goButton, styles[side], loading && styles.loading, className)}
       >
         {side === "left" && <span className={styles.leftIcon}>{renderIcon()}</span>}
         <span className={styles.text}>{children}</span>

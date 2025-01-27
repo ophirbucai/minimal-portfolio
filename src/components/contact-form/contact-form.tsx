@@ -7,11 +7,11 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@radix-ui/react-dialog";
-import { AiOutlineCloseCircle, AiOutlineCheckCircle } from "react-icons/ai";
-import { GoButton } from "../go-button/go-button";
-import styles from "./contact-form.module.css";
 import { FormProvider } from "react-hook-form";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { GoButton } from "../go-button/go-button";
 import { ContactFormField } from "./contact-form-field";
+import styles from "./contact-form.module.css";
 
 export const ContactForm = () => {
   const form = useContactForm();
@@ -32,27 +32,27 @@ export const ContactForm = () => {
         </header>
 
         <FormProvider {...form}>
-          <form className={styles.contactForm} onSubmit={form.onSubmit} noValidate>
+          <form noValidate className={styles.contactForm} onSubmit={form.onSubmit}>
             <ContactFormField
-              name="email"
               label="Email"
-              type="email"
+              name="email"
               placeholder="hello@company.com"
+              type="email"
             />
 
-            <ContactFormField name="name" label="Name" placeholder="Your name" />
+            <ContactFormField label="Name" name="name" placeholder="Your name" />
 
             <ContactFormField
-              name="subject"
               label="Subject"
+              name="subject"
               placeholder="What can we build together?"
             />
 
             <ContactFormField
-              name="message"
               label="Message"
-              rows={7}
+              name="message"
               placeholder="Tell me about your project needs, tech stack, and timeline"
+              rows={7}
             />
 
             <footer className={styles.footer}>
