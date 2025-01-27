@@ -170,11 +170,11 @@ export const ResumeModal = () => {
                     </a>
                   </h6>
                 </hgroup>
-                <div>
+                <small>
                   A lightweight plugin to prevent dummy text or other unwanted strings from being
                   included in production code. Illustrates the ease of creating tooling for better
                   code management.
-                </div>
+                </small>
               </article>
               <article>
                 <hgroup>
