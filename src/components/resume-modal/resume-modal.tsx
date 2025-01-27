@@ -1,4 +1,5 @@
 import dialogStyles from "@/assets/styles/dialog.module.css";
+import { useTheme } from "@/context/theme";
 import {
   Dialog,
   DialogClose,
@@ -12,7 +13,6 @@ import { clsx } from "clsx";
 import { AiOutlineDownload } from "react-icons/ai";
 import { ThemeToggle } from "../theme-toggle/theme-toggle";
 import styles from "./resume-modal.module.css";
-import { useTheme } from "@/context/theme";
 
 export const ResumeModal = () => {
   const { theme } = useTheme();
@@ -22,7 +22,7 @@ export const ResumeModal = () => {
         See my resume
       </DialogTrigger>
       <DialogPortal>
-        <DialogOverlay className={dialogStyles.dialogOverlay} key={theme} />
+        <DialogOverlay key={theme} className={dialogStyles.dialogOverlay} />
         <DialogContent
           className={dialogStyles.dialogContent}
           onCloseAutoFocus={(e) => e.preventDefault()}
