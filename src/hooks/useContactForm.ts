@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useRecaptcha } from "./useRecaptcha";
 
 export const contactFormSchema = z.object({
   subject: z.string().trim().optional().default("New submission - Develophir Contact Form"),
@@ -15,24 +16,27 @@ export const contactFormSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
-export const useContactForm = () => {
+export const useContactForm = (containerId: string) => {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     mode: "onTouched",
   });
+  const { executeRecaptcha } = useRecaptcha({
+    shouldLoad: form.formState.isDirty,
+    containerId,
+  });
 
   const onSubmit = async (data: ContactFormData) => {
     try {
+      const token = await executeRecaptcha();
+      if (!token) throw new Error("Could not execute recaptcha");
       const response = await fetch(`${import.meta.env.VITE_PUBLIC_API_URL}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          ...data,
-          access_key: import.meta.env.VITE_PUBLIC_ACCESS_KEY,
-        }),
+        body: JSON.stringify({ ...data, token }),
       });
 
       const responseData = await response.json();
@@ -45,6 +49,7 @@ export const useContactForm = () => {
       form.reset();
     } catch (error) {
       console.error("Form submission error:", error);
+      throw new Error("Oh no! Something went wrong");
     }
   };
 

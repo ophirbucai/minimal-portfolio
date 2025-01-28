@@ -8,6 +8,7 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@radix-ui/react-dialog";
+import { clsx } from "clsx";
 import { FormProvider } from "react-hook-form";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { GoButton } from "../go-button/go-button";
@@ -15,7 +16,7 @@ import { ContactFormField } from "./contact-form-field";
 import styles from "./contact-form.module.css";
 
 export const ContactForm = () => {
-  const form = useContactForm();
+  const form = useContactForm("recaptcha");
   const { formState } = form;
 
   return (
@@ -68,6 +69,7 @@ export const ContactForm = () => {
                   <AiOutlineCheckCircle /> Thanks for reaching out! I'll get back to you soon.
                 </span>
               )}
+              <div className={clsx("g-recaptcha", styles.recaptcha)} id="recaptcha" />
               <GoButton
                 className={styles.submitButton}
                 loading={formState.isSubmitting}
