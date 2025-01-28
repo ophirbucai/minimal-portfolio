@@ -1,5 +1,6 @@
 import dialogStyles from "@/assets/styles/dialog.module.css";
 import { useContactForm } from "@/hooks/useContactForm";
+import { useTitle } from "@/hooks/useTitle";
 import {
   DialogClose,
   DialogContent,
@@ -16,6 +17,7 @@ import { ContactFormField } from "./contact-form-field";
 import styles from "./contact-form.module.css";
 
 export const ContactForm = () => {
+  const { changeTitle, revertChangeTitle } = useTitle("Get in touch");
   const form = useContactForm("recaptcha");
   const { formState } = form;
 
@@ -24,8 +26,14 @@ export const ContactForm = () => {
       <DialogOverlay className={dialogStyles.dialogOverlay} />
       <DialogContent
         className={dialogStyles.dialogContent}
-        onCloseAutoFocus={(e) => e.preventDefault()}
-        onOpenAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={(e) => {
+          revertChangeTitle();
+          e.preventDefault();
+        }}
+        onOpenAutoFocus={(e) => {
+          changeTitle();
+          e.preventDefault();
+        }}
       >
         <header className={dialogStyles.dialogHeader}>
           <div>

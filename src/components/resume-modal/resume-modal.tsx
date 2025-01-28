@@ -1,5 +1,6 @@
 import dialogStyles from "@/assets/styles/dialog.module.css";
 import { useTheme } from "@/context/theme";
+import { useTitle } from "@/hooks/useTitle";
 import {
   Dialog,
   DialogClose,
@@ -16,6 +17,7 @@ import styles from "./resume-modal.module.css";
 
 export const ResumeModal = () => {
   const { theme } = useTheme();
+  const { changeTitle, revertChangeTitle } = useTitle("My Resume");
   return (
     <Dialog>
       <DialogTrigger className={styles.resumeTrigger} type="button">
@@ -25,8 +27,14 @@ export const ResumeModal = () => {
         <DialogOverlay key={theme} className={dialogStyles.dialogOverlay} />
         <DialogContent
           className={dialogStyles.dialogContent}
-          onCloseAutoFocus={(e) => e.preventDefault()}
-          onOpenAutoFocus={(e) => e.preventDefault()}
+          onCloseAutoFocus={(e) => {
+            revertChangeTitle();
+            e.preventDefault();
+          }}
+          onOpenAutoFocus={(e) => {
+            changeTitle();
+            e.preventDefault();
+          }}
         >
           <header className={dialogStyles.dialogHeader}>
             <DialogTitle className={clsx(dialogStyles.dialogTitle, styles.dialogTitle)}>
