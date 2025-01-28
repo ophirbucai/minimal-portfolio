@@ -8,32 +8,33 @@ type UseRecaptchaProps = {
 export const useRecaptcha = ({ containerId, shouldLoad = true }: UseRecaptchaProps) => {
   const [recaptchaLoaded, setRecaptchaLoaded] = useState<boolean>(false);
   const [recaptchaWidget, setRecaptchaWidget] = useState<string | null>(null);
+  const checkLoadRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!shouldLoad) return;
-
     let script: HTMLScriptElement | undefined = Array.from(document.scripts).find((script) =>
       script.src.startsWith("https://www.google.com/recaptcha/api.js"),
     );
 
-    if (script && window.grecaptcha && "render" in window.grecaptcha) {
-      setRecaptchaLoaded(true);
-      return;
+    if (!script) {
+      script = document.createElement("script");
+      script.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
     }
 
-    script = document.createElement("script");
-    script.src = "https://www.google.com/recaptcha/api.js?render=explicit";
-    script.async = true;
-    script.defer = true;
+    if (shouldLoad && !recaptchaLoaded) {
+      checkLoadRef.current = window.setInterval(() => {
+        if (window.grecaptcha && "render" in window.grecaptcha) {
+          setRecaptchaLoaded(true);
+        }
+      }, 300);
+    }
 
-    script.onload = () => {
-      if (window.grecaptcha && "render" in window.grecaptcha) {
-        setRecaptchaLoaded(true);
-      }
+    return () => {
+      checkLoadRef.current && clearInterval(checkLoadRef.current);
     };
-
-    document.body.appendChild(script);
-  }, [shouldLoad]);
+  }, [shouldLoad, recaptchaLoaded]);
 
   useEffect(() => {
     if (recaptchaLoaded && window.grecaptcha && recaptchaWidget === null) {
@@ -45,10 +46,11 @@ export const useRecaptcha = ({ containerId, shouldLoad = true }: UseRecaptchaPro
     }
   }, [recaptchaLoaded, recaptchaWidget, containerId]);
 
-  const executeRecaptcha = useCallback(() => {
+  const executeRecaptcha = useCallback(async () => {
     if (recaptchaWidget !== null && window.grecaptcha) {
       window.grecaptcha.reset(recaptchaWidget);
-      return window.grecaptcha.execute(recaptchaWidget);
+      const token = await window.grecaptcha.execute(recaptchaWidget);
+      return token;
     }
   }, [recaptchaWidget]);
 
