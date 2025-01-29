@@ -87,16 +87,13 @@
   line-height: 1.5;
 }
 
-:root[data-theme="light"] .dialog-title {
-  color: rgb(230, 230, 230);
-}
-
-:root[data-theme="light"] .dialog-description {
-  color: rgb(160 160 160);
-  transition: color 0.2s ease;
-
-  &:hover {
+:root[data-theme="light"] {
+  .dialog-title {
     color: rgb(230, 230, 230);
+  }
+
+  .dialog-description {
+    color: rgb(160 160 160);
   }
 }
 
