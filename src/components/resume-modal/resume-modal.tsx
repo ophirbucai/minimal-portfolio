@@ -24,7 +24,7 @@ export const ResumeModal = () => {
         See my resume
       </DialogTrigger>
       <DialogPortal>
-        <DialogOverlay key={theme} className={dialogStyles.dialogOverlay} />
+        <DialogOverlay className={theme && dialogStyles.dialogOverlay} />
         <DialogContent
           className={dialogStyles.dialogContent}
           onCloseAutoFocus={(e) => e.preventDefault()}
