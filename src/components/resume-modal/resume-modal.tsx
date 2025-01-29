@@ -19,7 +19,7 @@ export const ResumeModal = () => {
   const { theme } = useTheme();
   const { changeTitle, revertChangeTitle } = useTitle("My Resume");
   return (
-    <Dialog>
+    <Dialog onOpenChange={(open) => (open ? changeTitle() : revertChangeTitle())}>
       <DialogTrigger className={styles.resumeTrigger} type="button">
         See my resume
       </DialogTrigger>
@@ -27,14 +27,8 @@ export const ResumeModal = () => {
         <DialogOverlay key={theme} className={dialogStyles.dialogOverlay} />
         <DialogContent
           className={dialogStyles.dialogContent}
-          onCloseAutoFocus={(e) => {
-            revertChangeTitle();
-            e.preventDefault();
-          }}
-          onOpenAutoFocus={(e) => {
-            changeTitle();
-            e.preventDefault();
-          }}
+          onCloseAutoFocus={(e) => e.preventDefault()}
+          onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <header className={dialogStyles.dialogHeader}>
             <DialogTitle className={clsx(dialogStyles.dialogTitle, styles.dialogTitle)}>
