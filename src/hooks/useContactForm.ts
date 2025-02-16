@@ -1,3 +1,4 @@
+import { sendFormSubmission } from "@/services";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -30,20 +31,11 @@ export const useContactForm = (containerId: string) => {
     try {
       const token = await executeRecaptcha();
       if (!token) throw new Error("Could not execute recaptcha");
-      const response = await fetch(`${import.meta.env.VITE_PUBLIC_API_URL}/submit`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({ ...data, token }),
-      });
-
-      const responseData = await response.json();
-      if (responseData.success) {
+      const result = await sendFormSubmission(data, token);
+      if (result.success) {
         form.reset();
       } else {
-        throw new Error(responseData.message || "Failed to send message");
+        throw new Error(result.message || "Failed to send message");
       }
 
       form.reset();
