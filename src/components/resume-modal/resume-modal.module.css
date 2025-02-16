@@ -103,7 +103,7 @@
   }
 }
 
-.list {
+article ul {
   all: revert;
   margin: 0;
   padding: 0 1rem;
