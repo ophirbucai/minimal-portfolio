@@ -11,28 +11,26 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@radix-ui/react-dialog";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Lightbox = () => {
-  const [autoplay, setAutoplay] = useState<boolean>(true);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(-1);
-  const slides = useRef<HTMLImageElement[]>([]);
   const imagesObserver = useRef<IntersectionObserver | null>(
     new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting && entry.target instanceof HTMLImageElement) {
-            setCurrentSlideIndex(Number.parseInt(entry.target.dataset.index as string));
-          }
+          (entry.target as HTMLImageElement).style.setProperty(
+            "--opacity",
+            Math.min(entry.intersectionRatio + 0.3, 1).toFixed(1),
+          );
         }
       },
       {
-        threshold: 0.5,
+        threshold: [0.1, 0.3, 0.5, 0.7],
       },
     ),
   );
-  useEffect(() => imagesObserver.current?.disconnect(), []);
+  useEffect(() => () => imagesObserver.current?.disconnect(), []);
 
   return (
     <DialogPortal>
@@ -52,14 +50,14 @@ const Lightbox = () => {
             <img
               key={src}
               alt="Aerospace convention"
-              aria-current={currentSlideIndex === index}
               className={style.slide}
               data-index={index}
+              height={Math.min(600, document.body.clientHeight)}
               src={src}
+              width={800}
               onLoad={(e) => {
                 const el = e.currentTarget;
                 if (el && !el.dataset.observed) {
-                  slides.current[index] = el;
                   el.dataset.observed = "true";
                   imagesObserver.current?.observe(el);
                 }
