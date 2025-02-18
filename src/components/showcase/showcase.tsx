@@ -47,8 +47,10 @@ export const Showcase = () => {
             </span>
             <h3 className={styles.cardTitle}>ESLint Plugin Lorem</h3>
             <p className={styles.cardDescription}>
-              Published NPM package for detecting placeholder content in production code.
-              Implemented sophisticated regex pattern matching for JSX and template literals.
+              Keeps your code clean from accidental placeholder strings (like "Lorem Imsum") in your
+              codebase before they ever see the light of day. Scans both regular strings and
+              template literals for unwanted placeholder text. Flexible configurations to meet the
+              needs of the project.
             </p>
             <a
               className={styles.cardButton}
@@ -56,7 +58,7 @@ export const Showcase = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              View documentation
+              View on NPM
               <AiOutlineArrowRight className={styles.cardButtonIcon} />
             </a>
           </article>
