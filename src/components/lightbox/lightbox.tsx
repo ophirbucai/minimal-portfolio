@@ -11,26 +11,41 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@radix-ui/react-dialog";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Lightbox = () => {
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const slides = useRef<HTMLImageElement[]>([]);
+  const [slideIndex, setSlideIndex] = useState<number>(-1);
   const imagesObserver = useRef<IntersectionObserver | null>(
     new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          (entry.target as HTMLImageElement).style.setProperty(
-            "--opacity",
-            Math.min(entry.intersectionRatio + 0.3, 1).toFixed(1),
-          );
+          const el = entry.target as HTMLImageElement;
+          el.style.setProperty("--opacity", Math.min(entry.intersectionRatio + 0.3, 1).toFixed(1));
+          if (entry.isIntersecting) {
+            const currentIndex = Number.parseInt(el.dataset.index as string);
+            setSlideIndex(currentIndex);
+          }
         }
       },
       {
-        threshold: [0.1, 0.3, 0.5, 0.7],
+        threshold: [0.3, 0.7],
       },
     ),
   );
   useEffect(() => () => imagesObserver.current?.disconnect(), []);
+  useEffect(() => {
+    timeoutRef.current = setTimeout(() => {
+      const nextIndex = slideIndex < slides.current.length - 1 ? slideIndex + 1 : 0;
+      slides.current.at(nextIndex)?.scrollIntoView({ behavior: "smooth" });
+    }, 5000);
+
+    return () => {
+      timeoutRef.current && clearTimeout(timeoutRef.current);
+    };
+  }, [slideIndex]);
 
   return (
     <DialogPortal>
@@ -56,6 +71,7 @@ const Lightbox = () => {
               onLoad={(e) => {
                 const el = e.currentTarget;
                 if (el && !el.dataset.observed) {
+                  slides.current[index] = el;
                   el.dataset.observed = "true";
                   imagesObserver.current?.observe(el);
                 }
