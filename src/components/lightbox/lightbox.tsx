@@ -52,9 +52,7 @@ const Lightbox = () => {
               alt="Aerospace convention"
               className={style.slide}
               data-index={index}
-              height={Math.min(600, document.body.clientHeight)}
               src={src}
-              width={800}
               onLoad={(e) => {
                 const el = e.currentTarget;
                 if (el && !el.dataset.observed) {

@@ -9,6 +9,7 @@
 }
 
 .lightbox img {
+  min-height: 400px;
   object-fit: cover;
   scroll-snap-align: center;
   border-radius: 0.625rem;
