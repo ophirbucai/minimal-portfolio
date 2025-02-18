@@ -23,7 +23,7 @@ export const Showcase = () => {
         <Card asChild {...useScrollFade()}>
           <article>
             <img alt="Noti Token Logo" className={styles.cardIcon} src={NotiToken} />
-            <h3 className={styles.cardTitle}>Noti: Platform for sniping token on Ethereum</h3>
+            <h3 className={styles.cardTitle}>NOTI: Token Sniping Platform</h3>
             <p className={styles.cardDescription}>
               Architected and implemented a high-volume referral-based token sale system handling
               complex user relationships and transactions. Designed an intuitive interface for users
