@@ -35,7 +35,7 @@ export const Showcase = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              Front-facing website
+              Go to website
               <AiOutlineArrowRight className={styles.cardButtonIcon} />
             </a>
           </article>
