@@ -43,16 +43,24 @@
 }
 
 .card-button-icon {
-  transition: transform var(--transition-duration) ease-out;
+  will-change: transform;
+  transition: transform 100ms ease-out 50ms;
 }
 
 .card-button:hover .card-button-icon {
-  transform: translate3d(0.625rem, 0, 0);
+  transform: translate3d(0.375rem, 0, 0);
+  transition-delay: 0ms;
 }
 
 .spotifik {
   width: 3.25rem;
   height: 3.25rem;
+}
+
+.nupod {
+  width: 175%;
+  height: 175%;
+  object-fit: cover;
 }
 
 .card-image {
@@ -61,6 +69,7 @@
   place-items: center;
   border-radius: 0.375rem;
   object-fit: cover;
+  overflow: hidden;
 }
 
 :root[data-theme="light"] .card-image {
