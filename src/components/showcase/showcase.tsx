@@ -99,7 +99,7 @@ export const Showcase = () => {
             </p>
             <a
               className={styles.cardButton}
-              href="https://song-server-va7s.onrender.com/"
+              href="https://github.com/ophirbucai/minimal-portfolio"
               rel="noopener noreferrer"
               target="_blank"
             >
