@@ -13,7 +13,7 @@ export const Hero = () => {
         <span className={styles.titleName}>Ophir Bucai</span>
       </h1>
       <p className={clsx(styles.description, styles.secondaryColor)}>
-        Front-end engineer helping startups turn their visions into a digital reality. I specialize
+        Software developer helping startups turn their visions into a digital reality. I specialize
         in building modern <span className="nobr">web-based</span> apps.
       </p>
       <div className={styles.callToAction}>
