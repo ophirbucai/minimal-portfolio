@@ -1,11 +1,17 @@
+import Lorem from "@/assets/img/showcase/Lorem.png";
 import NotiToken from "@/assets/img/showcase/noti-token.svg";
-import RecipesHub from "@/assets/img/showcase/recipes-hub.png";
+import NuPod from "@/assets/img/showcase/nupod.webp";
 import Track from "@/assets/img/showcase/track.svg";
 import { useScrollFade } from "@/hooks/useScrollFade";
+import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
 import { clsx } from "clsx";
+import { Suspense, lazy } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { BiWorld } from "react-icons/bi";
 import { Card } from "../card/card";
 import styles from "./showcase.module.css";
+
+const Lightbox = lazy(() => import("@/components/lightbox/lightbox"));
 
 export const Showcase = () => {
   return (
@@ -17,23 +23,85 @@ export const Showcase = () => {
         <Card asChild {...useScrollFade()}>
           <article>
             <img alt="Noti Token Logo" className={styles.cardIcon} src={NotiToken} />
-            <h3 className={styles.cardTitle}>
-              Noti: Crypto Sniping & Prelaunch Investment Platform
-            </h3>
+            <h3 className={styles.cardTitle}>Noti: Platform for sniping token on Ethereum</h3>
             <p className={styles.cardDescription}>
-              A comprehensive crypto sniping platform enabling users to invest in prelaunched tokens
-              with precision and speed. As a full-stack developer, you played a pivotal role in
-              building every aspect of the platform, ensuring a seamless experience for users in a
-              highly competitive market. Designed intuitive tools for users to analyze, track, and
-              invest in upcoming tokens.
+              Architected and implemented a high-volume referral-based token sale system handling
+              complex user relationships and transactions. Designed an intuitive interface for users
+              to analyze, track and invest in prelaunched tokens.
             </p>
             <a
               className={styles.cardButton}
-              href="https://app.noti.io"
+              href="https://noti.io"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Visit dashboard
+              Front-facing website
+              <AiOutlineArrowRight className={styles.cardButtonIcon} />
+            </a>
+          </article>
+        </Card>
+        <Card asChild {...useScrollFade()}>
+          <article>
+            <span className={clsx(styles.cardIcon, styles.cardImage, styles.spotifik)}>
+              <img alt="Project by Ophir Bucai" src={Lorem} />
+            </span>
+            <h3 className={styles.cardTitle}>ESLint Plugin Lorem</h3>
+            <p className={styles.cardDescription}>
+              Published NPM package for detecting placeholder content in production code.
+              Implemented sophisticated regex pattern matching for JSX and template literals.
+            </p>
+            <a
+              className={styles.cardButton}
+              href="https://npmjs.com/eslint-plugin-lorem"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              View documentation
+              <AiOutlineArrowRight className={styles.cardButtonIcon} />
+            </a>
+          </article>
+        </Card>
+
+        <Card asChild {...useScrollFade()}>
+          <article>
+            <span className={clsx(styles.cardIcon, styles.cardImage, styles.spotifik)}>
+              <img alt="Ramon.Space NuPod" className={styles.nupod} src={NuPod} />
+            </span>
+            <h3 className={styles.cardTitle}>Ramon.Space Interface</h3>
+            <p className={styles.cardDescription}>
+              Engineered desktop application bridging hardware interface with Python backend. Built
+              responsive UI using Electron IPC for seamless communication. It was a rewarding
+              challenge, culminating in a successful presentation at the Washington, DC aerospace
+              convention
+            </p>
+            <Dialog>
+              <DialogTrigger className={styles.cardButton}>
+                See the product
+                <AiOutlineArrowRight className={styles.cardButtonIcon} />
+              </DialogTrigger>
+              <Suspense fallback={null}>
+                <Lightbox />
+              </Suspense>
+            </Dialog>
+          </article>
+        </Card>
+        <Card asChild {...useScrollFade()}>
+          <article>
+            <span className={clsx(styles.cardIcon, styles.cardImage, styles.spotifik)}>
+              <BiWorld fontSize={24} />
+            </span>
+            <h3 className={styles.cardTitle}>Personal Website</h3>
+            <p className={styles.cardDescription}>
+              Crafted modern portfolio with React, TypeScript Framer Motion and CSS Modules.
+              Implemented serverless form handling with CloudFlare workers and ReCaptcha
+            </p>
+            <a
+              className={styles.cardButton}
+              href="https://song-server-va7s.onrender.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Show me the code
               <AiOutlineArrowRight className={styles.cardButtonIcon} />
             </a>
           </article>
@@ -43,11 +111,10 @@ export const Showcase = () => {
             <span className={clsx(styles.cardIcon, styles.cardImage, styles.spotifik)}>
               <img alt="Project by Ophir Bucai" src={Track} />
             </span>
-            <h3 className={styles.cardTitle}>Spotifik: Personalized Music Curation Platform</h3>
+            <h3 className={styles.cardTitle}>Spotifik: Music Discovery Platform</h3>
             <p className={styles.cardDescription}>
-              A custom-built music discovery platform inspired by Spotify, leveraging React for a
-              seamless UI and NestJS for robust backend performance. Focused on delivering tailored
-              genre-based playlists and integration with third-party APIs for music metadata.
+              A custom-built music discovery platform with tailored genre-based playlists, inspired
+              by Spotify.
             </p>
             <a
               className={styles.cardButton}
