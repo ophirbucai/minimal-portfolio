@@ -127,33 +127,6 @@ export const Showcase = () => {
             </a>
           </article>
         </Card>
-        <Card asChild {...useScrollFade()}>
-          <article>
-            <img
-              alt="Project by Ophir Bucai"
-              className={clsx(styles.cardIcon, styles.cardImage)}
-              src={RecipesHub}
-            />
-            <h3 className={styles.cardTitle}>Recipes Hub: Share, Discover, and Cook Together</h3>
-            <p className={styles.cardDescription}>
-              An online space for Food enthusiasts to share, and enjoy the art of cooking. Built
-              with a focus on community and discovery, this app allows users to showcase their
-              favorite recipes while searching for new culinary inspirations.
-              <br />
-              Built with a responsive design for seamless use across devices, it’s perfect for
-              browsing in the kitchen or on the go.
-            </p>
-            <a
-              className={styles.cardButton}
-              href="https://"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Explore the hub
-              <AiOutlineArrowRight className={styles.cardButtonIcon} />
-            </a>
-          </article>
-        </Card>
       </div>
     </section>
   );
