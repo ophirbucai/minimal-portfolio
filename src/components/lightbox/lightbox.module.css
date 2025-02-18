@@ -6,13 +6,13 @@
   scroll-snap-type: x mandatory;
   border-radius: 0.625rem;
   padding: 0;
-  position: relative;
 }
 
 .lightbox img {
   object-fit: cover;
   scroll-snap-align: center;
-  transition: scale var(--transition-duration) ease-in-out;
   border-radius: 0.625rem;
-  position: relative;
+  opacity: var(--opacity, 0.3);
+  will-change: opacity;
+  transition: opacity var(--transition-duration) ease;
 }
