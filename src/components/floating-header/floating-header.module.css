@@ -38,14 +38,7 @@
 }
 
 .logo {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--text-color);
 }
-
-/* 
-@media screen and (width <= calc(768px + 1rem)) {
-  .floating-header {
-    bottom: 0;
-    top: auto; 
-  }
-} */
