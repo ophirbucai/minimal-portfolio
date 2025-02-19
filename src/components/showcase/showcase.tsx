@@ -15,7 +15,7 @@ const Lightbox = lazy(() => import("@/components/lightbox/lightbox"));
 
 export const Showcase = () => {
   return (
-    <section className={styles.showcase}>
+    <section className={styles.showcase} id="showcase">
       <h2 className={styles.title} {...useScrollFade()}>
         Selected Work
       </h2>

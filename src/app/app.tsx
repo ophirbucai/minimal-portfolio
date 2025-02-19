@@ -1,3 +1,4 @@
+import { AppFooter } from "@/components/app-footer/app-footer";
 import { ContactForm } from "@/components/contact-form/contact-form";
 import { FloatingHeader } from "@/components/floating-header/floating-header";
 import { Hero } from "@/components/hero/hero";
@@ -14,9 +15,7 @@ export function App() {
       <Hero />
       <Showcase />
       <TechStack />
-      <footer className={styles.footer}>
-        <Spots side="bottom" />
-      </footer>
+      <AppFooter />
       <ContactForm />
     </div>
   );

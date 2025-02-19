@@ -1,4 +1,4 @@
-import Logo from "../../assets/d.svg?react";
+import Logo from "../../assets/icons/d.svg?react";
 import { Menu } from "../menu/menu";
 import { Social } from "../social/social";
 import { ThemeToggle } from "../theme-toggle/theme-toggle";
