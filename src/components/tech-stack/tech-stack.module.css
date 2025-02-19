@@ -1,5 +1,5 @@
 .tech-stack {
-  max-width: 1280px;
+  max-width: 56rem;
   color: var(--text-color);
   margin: 25vh auto 0;
   padding: 1rem;
@@ -12,7 +12,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
   gap: 1rem;
 }
 

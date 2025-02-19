@@ -21,7 +21,7 @@ export const ResumeModal = () => {
   const { resume } = useResumeData();
   return (
     <Dialog onOpenChange={(open) => (open ? changeTitle() : revertChangeTitle())}>
-      <DialogTrigger className={styles.resumeTrigger} type="button">
+      <DialogTrigger className={styles.resumeTrigger} id="resume-trigger" type="button">
         See my resume
       </DialogTrigger>
       <DialogPortal>

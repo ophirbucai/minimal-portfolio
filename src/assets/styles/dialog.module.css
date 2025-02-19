@@ -14,7 +14,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 768px;
+  max-width: 56rem;
   width: 100%;
   animation: content-show var(--transition-duration) cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;

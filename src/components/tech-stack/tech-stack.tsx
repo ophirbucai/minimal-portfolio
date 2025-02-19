@@ -30,7 +30,7 @@ export const TechStack = () => {
   return (
     <section className={styles.techStack}>
       <h2 className={styles.title} {...useScrollFade()}>
-        Dev & Design
+        Technical Skills
       </h2>
       <div className={styles.cards}>
         {CONTENT.map((props) => (

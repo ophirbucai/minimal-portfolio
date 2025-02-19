@@ -88,7 +88,7 @@
   }
 }
 
-@media screen and (width <= calc(768px + 1rem)) {
+@media screen and (width <= calc(56rem + 1rem)) {
   .contact-details {
     grid-template-columns: 1fr;
     text-align: center;

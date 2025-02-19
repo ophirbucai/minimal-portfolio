@@ -1,0 +1,78 @@
+
+.footer {
+  max-width: 56rem;
+  width: 100%;
+  position: relative;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-areas: 
+    "logo links" 
+    "copy links";
+  align-items: start;
+  padding: 2rem;
+}
+
+.links {
+  grid-area: links;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.links > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+  font-weight: normal;
+  font-size: 0.875rem;
+}
+
+.links button {
+  color: #C5C5C580;
+  transition: color var(--transition-duration) ease;
+}
+
+.links button:hover {
+  color: #C5C5C5;
+}
+
+.logo-container {
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  width: auto;
+  height: 4.5rem;
+  color: var(--text-color);
+}
+
+.copy {
+  padding-top: 4.5rem;
+  grid-area: copy;
+}
+
+.secondary {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+@media screen and (width < 32rem) {
+  .footer-container {
+    grid-template-areas: "links" "logo" "copy";
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .links {
+    padding: 0;
+  }
+}

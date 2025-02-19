@@ -6,10 +6,3 @@
   align-items: center;
   background-color: var(--background-color);
 }
-
-.footer {
-  margin-top: auto;
-  height: 500px;
-  width: 100%;
-  position: relative;
-}
