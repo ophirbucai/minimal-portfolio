@@ -1,9 +1,6 @@
-import Image1 from "@/assets/img/ramon.space/5756cef7-40e5-4cbf-8261-479006c47f33.webp";
-import Image2 from "@/assets/img/ramon.space/dd818778-c12e-4c04-8759-0bcdbd16095a.webp";
-import Image3 from "@/assets/img/ramon.space/e48348e0-870d-428a-9bd0-0fe25e9039ce.webp";
 import style from "./lightbox.module.css";
-
 import dialogStyles from "@/assets/styles/dialog.module.css";
+
 import {
   DialogClose,
   DialogContent,
@@ -11,41 +8,68 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@radix-ui/react-dialog";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useSlideObserver } from "@/hooks/useSlideObserver";
 
-const Lightbox = () => {
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const slides = useRef<HTMLImageElement[]>([]);
-  const [slideIndex, setSlideIndex] = useState<number>(-1);
-  const imagesObserver = useRef<IntersectionObserver | null>(
-    new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          const el = entry.target as HTMLImageElement;
-          el.style.setProperty("--opacity", Math.min(entry.intersectionRatio + 0.3, 1).toFixed(1));
-          if (entry.isIntersecting) {
-            const currentIndex = Number.parseInt(el.dataset.index as string);
-            setSlideIndex(currentIndex);
-          }
+const Lightbox = ({ slides }: { slides: readonly string[] }) => {
+  const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
+  const slideContainerRef = useRef<HTMLDivElement>(null);
+  const [slideIndex, setSlideIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const { onSlideLoaded } = useSlideObserver(
+    useCallback(
+      (index) => {
+        if (!isTransitioning) {
+          setSlideIndex(index);
         }
       },
-      {
-        threshold: [0.3, 0.7],
-      },
+      [isTransitioning],
     ),
   );
-  useEffect(() => () => imagesObserver.current?.disconnect(), []);
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      const nextIndex = slideIndex < slides.current.length - 1 ? slideIndex + 1 : 0;
-      slides.current.at(nextIndex)?.scrollIntoView({ behavior: "smooth" });
-    }, 5000);
 
-    return () => {
-      timeoutRef.current && clearTimeout(timeoutRef.current);
-    };
-  }, [slideIndex]);
+  const scrollToSlide = useCallback((index: number, behavior: ScrollBehavior = "smooth") => {
+    if (!slideContainerRef.current) return;
+
+    const slide = slideContainerRef.current.children[index];
+    slide.scrollIntoView({ behavior });
+  }, []);
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    if (slideIndex === 0) {
+      setIsTransitioning(true);
+      timeoutId = setTimeout(() => {
+        scrollToSlide(extendedSlides.length - 2, "auto");
+        setIsTransitioning(false);
+      }, 300);
+    } else if (slideIndex === extendedSlides.length - 1) {
+      setIsTransitioning(true);
+      timeoutId = setTimeout(() => {
+        scrollToSlide(1, "auto");
+        setIsTransitioning(false);
+      }, 300);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [slideIndex, scrollToSlide, extendedSlides.length]);
+
+  useEffect(() => {
+    scrollToSlide(slideIndex);
+
+    const timeoutId = setTimeout(() => scrollToSlide(slideIndex + 1), 5000);
+
+    return () => clearTimeout(timeoutId);
+  }, [slideIndex, scrollToSlide]);
+
+  const realIndex =
+    slideIndex === 0
+      ? slides.length - 1
+      : slideIndex === extendedSlides.length - 1
+        ? 0
+        : slideIndex - 1;
 
   return (
     <DialogPortal>
@@ -60,25 +84,36 @@ const Lightbox = () => {
           </DialogClose>
         </header>
 
-        <div className={style.lightbox}>
-          {[Image1, Image2, Image3].map((src, index) => (
-            <img
-              key={src}
-              alt="Aerospace convention"
-              className={style.slide}
-              data-index={index}
-              src={src}
-              onLoad={(e) => {
-                const el = e.currentTarget;
-                if (el && !el.dataset.observed) {
-                  slides.current[index] = el;
-                  el.dataset.observed = "true";
-                  imagesObserver.current?.observe(el);
-                }
-              }}
-            />
-          ))}
-        </div>
+        <section className={style.lightboxContainer}>
+          <div ref={slideContainerRef} className={style.lightbox}>
+            {extendedSlides.map((src, index) => (
+              <div
+                key={`${src}-${index.toString()}`}
+                ref={(el) => onSlideLoaded(el, index)}
+                className={style.slideWrapper}
+              >
+                <img
+                  alt="Aerospace convention"
+                  aria-current={realIndex === index || slideIndex === index}
+                  className={style.slide}
+                  src={src}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className={style.indicators}>
+            {slides.map((_, i) => (
+              <button
+                key={i.toString()}
+                aria-current={i === realIndex}
+                className={style.indicator}
+                type="button"
+                onClick={() => setSlideIndex(i + 1)}
+              />
+            ))}
+          </div>
+        </section>
       </DialogContent>
     </DialogPortal>
   );
