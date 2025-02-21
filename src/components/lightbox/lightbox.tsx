@@ -74,7 +74,10 @@ const Lightbox = ({ slides }: { slides: readonly string[] }) => {
   return (
     <DialogPortal>
       <DialogOverlay className={dialogStyles.dialogOverlay} />
-      <DialogContent className={dialogStyles.dialogContent}>
+      <DialogContent
+        className={dialogStyles.dialogContent}
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <header className={dialogStyles.dialogHeader}>
           <div>
             <DialogTitle>Washington, DC aerospace convention</DialogTitle>
