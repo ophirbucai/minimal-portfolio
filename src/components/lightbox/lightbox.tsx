@@ -1,6 +1,7 @@
-import style from "./lightbox.module.css";
 import dialogStyles from "@/assets/styles/dialog.module.css";
+import style from "./lightbox.module.css";
 
+import { useSlideObserver } from "@/hooks/useSlideObserver";
 import {
   DialogClose,
   DialogContent,
@@ -10,7 +11,6 @@ import {
 } from "@radix-ui/react-dialog";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useSlideObserver } from "@/hooks/useSlideObserver";
 
 const Lightbox = ({ slides }: { slides: readonly string[] }) => {
   const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
