@@ -24,11 +24,19 @@
 
   &:hover {
     box-shadow: 0 0 5px var(--border-color);
+    
+    --opacity: 1 !important;
   }
 }
 
-.cards:has(.card:hover) .card:not(:hover) {
-  --opacity: 0.6 !important;
+
+@media only screen and (width >= calc(47rem)) {
+  /* Override inline opacity declarations */
+  
+  
+  .cards:has(.card:hover) .card:not(:hover) {
+    --opacity: 0.7 !important;
+  }
 }
 
 .card-icon {
@@ -59,10 +67,10 @@
 
 .card-button-icon {
   will-change: transform;
-  transition: transform 100ms ease-out 50ms;
+  transition: transform var(--transition-duration) ease-out 50ms;
 }
 
-.card-button:hover .card-button-icon {
+.card:hover .card-button-icon {
   transform: translate3d(0.375rem, 0, 0);
   transition-delay: 0ms;
 }
