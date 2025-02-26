@@ -1,13 +1,48 @@
 # Develophir — Minimal Portfolio
-#### A modern, responsive portfolio built with Nx, React, and Vite.
+
+## The Sandals-Man Walks Barefoot
+
+There’s a saying in Hebrew: the sandals-man walks barefoot. It’s absurd, isn’t it? The person who can craft the best sandals chooses to go without. But why? Maybe it’s about initiative. Maybe it’s about understanding what it’s like to walk without them—to question whether they’re even necessary.
+
+That’s the story here. I’ve spent years building things for others, almost three years without ever having my own website. I know what it’s like not to have one. And yet, in today’s world, without an online presence, we’re practically invisible—to recruiters, to potential collaborators. Meanwhile, information is just a click away. That’s _magical_. In some ways, it’s _wondrous_.
+
+### Why This Exists
+This website is not just a portfolio. It’s a space that represents my work, my ideas, and the things I’ve built. It’s my _digital footprint_.
+
+#### You’ll find:
+
+- Projects I’ve worked on, from concept to execution.
+- Ideas and insights—things I’ve learned along the way.
+- A reflection of how I think about building software.
+
+#### What You Won’t Find Here
+
+- A corporate, buzzword-filled about page.
+- Overly polished marketing fluff.
+- Anything that doesn’t feel like me.
+
+    This is a place for real things—code, experiments, thoughts.<br />
+    It **evolves**, just like everything else I work on.
+
+### The Future
+
+I’ve spent years helping others build their ideas.<br/>
+Now, I’m carving out a space for mine. It starts [<u>here</u>](https://github.com/ophirbucai/minimal-portfolio).
+
+<br/>
+
+---
+
+<br/>
+
+## A modern, responsive portfolio built with Nx, React, and Vite.
 #### You can find the released version here: https://develophir.com
 
-### Overview
 - **Cloudflare Worker integration** for hassle-free resume updates (no rebuild needed).
 - **Motion-based animations** for smooth scrolling and fading elements.
 - **Radix UI** for accessible dialogs and triggers.
 - **React Hook Form + Zod** for robust form handling and validation.
----
+
 
 ## Tech Stack
 - **Nx**: Monorepo tooling for efficient workspace management.
