@@ -1,82 +1,121 @@
-# MinimalPortfolio
+# Develophir — Minimal Portfolio
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+## The Sandals-Man Walks Barefoot
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+There’s a saying in Hebrew: the sandals-man walks barefoot. It’s absurd, isn’t it? The person who can craft the best sandals chooses to go without. But why? Maybe it’s about initiative. Maybe it’s about understanding what it’s like to walk without them—to question whether they’re even necessary.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+That’s the story here. I’ve spent years building things for others, almost three years without ever having my own website. I know what it’s like not to have one. And yet, in today’s world, without an online presence, we’re practically invisible—to recruiters, to potential collaborators. Meanwhile, information is just a click away. That’s _magical_. In some ways, it’s _wondrous_.
 
-## Finish your CI setup
+### Why This Exists
+This website is not just a portfolio. It’s a space that represents my work, my ideas, and the things I’ve built. It’s my _digital footprint_.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/1ABmivWpLT)
+#### You’ll find:
+
+- Projects I’ve worked on, from concept to execution.
+- Ideas and insights—things I’ve learned along the way.
+- A reflection of how I think about building software.
+
+#### What You Won’t Find Here
+
+- A corporate, buzzword-filled about page.
+- Overly polished marketing fluff.
+- Anything that doesn’t feel like me.
+
+    This is a place for real things—code, experiments, thoughts.<br />
+    It **evolves**, just like everything else I work on.
+
+### The Future
+
+I’ve spent years helping others build their ideas.<br/>
+Now, I’m carving out a space for mine. It starts [<u>here</u>](https://github.com/ophirbucai/minimal-portfolio).
+
+<br/>
+
+---
+
+<br/>
+
+## A modern, responsive portfolio built with Nx, React, and Vite.
+#### You can find the released version here: https://develophir.com
+
+- **Cloudflare Worker integration** for hassle-free resume updates (no rebuild needed).
+- **Motion-based animations** for smooth scrolling and fading elements.
+- **Radix UI** for accessible dialogs and triggers.
+- **React Hook Form + Zod** for robust form handling and validation.
 
 
-## Run tasks
+## Tech Stack
+- **Nx**: Monorepo tooling for efficient workspace management.
+- **React + Vite**: Fast development experience with modern bundling.
+- **CSS Modules**: Scoped styling for maintainability.
+- **Motion**: Subtle animations and transitions.
+- **React Hook Form**: Lightweight form state management.
+- **Radix UI**: Unstyled, accessible components.
+- **Zod**: Runtime validation for form data.
+- **Cloudflare Worker**: Fetches and serves the resume file independently.
 
-To run the dev server for your app, use:
-
-```sh
-npx nx serve minimal-portfolio
+## Project Structure
+```
+├── src
+│   ├── app/                 # Main entry component (App)
+│   ├── components/          # Modular, reusable UI components
+│   ├── context/theme/       # Theme context & provider
+│   ├── hooks/               # Custom React hooks (e.g., form, recaptcha, etc.)
+│   ├── services/            # API calls & helper functions
+│   ├── setupTests/          # Test setup files
+│   └── main.tsx             # App entry point
+├── stylelint.config.js      # Stylelint config
+└── vite.config.ts           # Vite configuration (NX + React)
 ```
 
-To create a production bundle:
+## Getting Started
+1. **Clone the repository**
 
-```sh
-npx nx build minimal-portfolio
-```
+    ```bash
+    git clone https://github.com/ophirbucai/minimal-portfolio.git
+    ```
+2. **Install dependencies**
 
-To see all available targets to run for a project, run:
+    ```bash
+    cd minimal-portfolio
+    npm install
+    ```
+3. **Local development**
 
-```sh
-npx nx show project minimal-portfolio
-```
+    ```bash
+    npx nx serve 
+    ## or if you have Nx installed globally, simply run:
+    nx serve
+    ```
+4. **Open your browser**
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+    Visit http://localhost:4200 (or the indicated port).
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Features
+- **Responsive UI**: Works great on mobile, tablet, and desktop.
+- **Animated Elements**: Uses motion for subtle fade/scroll animations.
+- **Seamless Resume Updates**: A Cloudflare Worker handles resume download outside the main build.
+- **Accessible Dialogs**: Employs Radix UI for modal windows and triggers.
+- **Robust Form Handling**: React Hook Form + Zod ensure validation and a solid user experience.
 
-## Add new projects
+## Development Process
+1. **Design & Planning**
+   - Chose a minimal aesthetic to emphasize content.
+   - Structured components by functionality (e.g. contact-form, hero, etc.).
+   Implementation
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+2. **Set up Nx with React + Vite** for speed and modular structure.
+   - Created context providers (e.g., theme) for global state.
+   - Integrated form validation using React Hook Form + Zod.
 
-Use the plugin's generator to create new projects.
+3. **Testing & Linting**
+   - Used Vitest for testing, with a few spec files (app.spec.tsx, etc.).
+   - Configured Stylelint + Nx to maintain code cleanliness.
 
-To generate a new application, use:
+4. **Deployment**
+   - Deployed the main site to Cloudflare Pages for excellent CI/CD.
+   - Leveraged a Cloudflare Worker for the resume PDF, ensuring no site downtime for file updates.
 
-```sh
-npx nx g @nx/react:app demo
-```
+--- 
 
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**&copy; 2025 Ophir Bucai.** All Rights Reserved. [**develophir.com**](https://develophir.com)
